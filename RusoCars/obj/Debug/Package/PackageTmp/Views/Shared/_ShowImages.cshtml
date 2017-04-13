@@ -1,0 +1,29 @@
+﻿<p class="titulo" style="margin: 5px;">
+    @ViewBag.Title
+</p>
+<div class="galeria">
+    <p class="titulo">
+        @ViewBag.SubcategoryName
+    </p>
+    @foreach (var item in Model)
+    {
+        <div class="instancia">
+            <div class="imagen">
+                <img src="@(item.ImagePath)">
+                @Ajax.ActionLink(" ", "ZoomImage", "Public", new { id = (int)item.ImageId }, new AjaxOptions
+                    {
+                        UpdateTargetId = "zoom",
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "GET",
+                        OnBegin = "ajaxOnBegin('zoom')",
+                        OnComplete = "ajaxOnComplete('zoom')",
+                        OnSuccess = "ajaxOnSuccess('zoom')",
+                        LoadingElementDuration = 2000
+                    })
+            </div>
+            <p class="descripcion" style="text-align: left">
+                @(item.ImageTitle)
+            </p>
+        </div>
+    }
+</div>

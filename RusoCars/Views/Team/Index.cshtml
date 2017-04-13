@@ -1,0 +1,49 @@
+﻿@model IEnumerable<RusoCars.Models.Team>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Equipo</h2>
+<p>
+    @Html.ActionLink("Nuevo", "Create")
+</p>
+<table class="tabla_datos">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image.ImageTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mail)
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.Image.ImagePath)" alt="@Html.DisplayFor(modelItem => item.Image.ImageTitle)" height="75" width="100" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mail)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.TeamId }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.TeamId }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.TeamId })
+            </td>
+        </tr>
+    }
+</table>

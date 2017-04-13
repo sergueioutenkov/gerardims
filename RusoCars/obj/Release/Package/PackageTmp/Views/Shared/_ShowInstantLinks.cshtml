@@ -1,0 +1,34 @@
+﻿<p class="titulo" style="margin:5px;">
+    @Model[0].LinksCategory.Name
+</p>
+<div class="lineaRoja">
+
+</div>
+<table width="100%">
+@foreach(var item in Model)
+{
+    <tr class="instancia">    
+        <td width="200" align=center>    
+            <div class="imagen" style=" width:auto; height:auto">
+                <a href="@(item.LinkUrl)" target="_blank">
+                    <img src="@(item.Image.ImagePath)">
+                </a>
+            </div>
+        </td>
+        <td>        
+            <p class="descripcion" style="text-align:center">
+                <a href="@(item.LinkUrl)" target="_blank">                
+                    @(item.Name)
+                </a>
+            </p>
+        </td> 
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div class="lineaRoja">
+            
+            </div>
+        </td>
+    </tr>
+}
+</table>

@@ -1,0 +1,36 @@
+﻿@model RusoCars.Models.Subcategory
+@using RusoCars.Models;
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle</h2>
+<br />
+
+<fieldset>
+    <legend>Subcategoría</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Category.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.Name)
+    </div>
+    <div>
+            @foreach (Image images in ViewBag.Images)
+            {
+                <img src="@images.ImagePath" alt="@images.ImageTitle" height="75" width="100" style="margin-top: 15px;" />
+            }
+        </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.SubcategoryId }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

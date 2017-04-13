@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+<div class="index">
+    <div class="slider">
+        <div class="absolute" id="sliderIndex">
+            <div class="instancia">
+                <img src="../../Images/slider2.png" />
+            </div>
+            <div class="instancia">
+                <img src="../../Images/slider.png" />            
+            </div>
+            <div class="instancia">
+                <img src="../../Images/slider3.png" />            
+            </div>
+            <div class="instancia">
+                <img src="../../Images/slider4.png" />            
+            </div>
+            <div class="instancia">
+                <img src="../../Images/slider5.png" />            
+            </div>
+        </div>
+    </div>
+    <div class="intro" id="intro">        
+        @Html.Action("ShowText",  new {id = 3})
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        autoSlide("sliderIndex");
+    });
+</script>

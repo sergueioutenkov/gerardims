@@ -1,0 +1,55 @@
+﻿@model IEnumerable<RusoCars.Models.Service>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Servicios</h2>
+<p>
+    @Html.ActionLink("Crear", "Create")
+</p>
+<table class="tabla_datos">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isCompetition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageBefore.ImageTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageAfter.ImageTitle)
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isCompetition)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.ImageBefore.ImagePath)" alt="@Html.DisplayFor(modelItem => item.ImageBefore.ImageTitle)" height="75" width="100" />
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.ImageAfter.ImagePath)" alt="@Html.DisplayFor(modelItem => item.ImageAfter.ImageTitle)" height="75" width="100" />
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.ServiceId }) |
+                @Html.ActionLink("Detalle", "Details", new { id = item.ServiceId }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.ServiceId })
+            </td>
+        </tr>
+    }
+</table>

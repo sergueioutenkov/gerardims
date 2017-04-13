@@ -1,0 +1,56 @@
+﻿
+<p class="titulo">
+    <div class="banderitas">
+        <p class="titulo">
+            @ViewBag.Titulo    
+        </p>
+    </div>
+    
+    <div class="banderitas">
+        @Ajax.ActionLink(" ", "ShowTextQ", "Public", new { id = 7 }, new AjaxOptions
+           {
+               UpdateTargetId = "intro",
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "GET",
+               OnBegin = "ajaxOnBegin('zoom')",
+               OnComplete = "ajaxOnComplete('zoom')",
+               OnSuccess = "ajaxOnSuccess('zoom')",
+               LoadingElementDuration = 2000
+           })
+        <img src="../../Images/esp.png"/>    
+    </div>
+    <div class="banderitas">
+        @Ajax.ActionLink(" ", "ShowTextQ", "Public", new { id = 10 }, new AjaxOptions
+           {
+               UpdateTargetId = "intro",
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "GET",
+               OnBegin = "ajaxOnBegin('zoom')",
+               OnComplete = "ajaxOnComplete('zoom')",
+               OnSuccess = "ajaxOnSuccess('zoom')",
+               LoadingElementDuration = 2000
+           })
+        <img src="../../Images/eng.png"/>
+    </div>
+    <div class="banderitas">
+        @Ajax.ActionLink(" ", "ShowTextQ", "Public", new { id = 11 }, new AjaxOptions
+           {
+               UpdateTargetId = "intro",
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "GET",
+               OnBegin = "ajaxOnBegin('zoom')",
+               OnComplete = "ajaxOnComplete('zoom')",
+               OnSuccess = "ajaxOnSuccess('zoom')",
+               LoadingElementDuration = 2000
+           })
+        <img src="../../Images/ita.png"/>
+    </div>
+</p>
+<div class="clear">
+</div>
+<div class="lineaRoja">
+        
+</div>
+<p>
+@Html.Raw(ViewBag.Intro)
+</p>

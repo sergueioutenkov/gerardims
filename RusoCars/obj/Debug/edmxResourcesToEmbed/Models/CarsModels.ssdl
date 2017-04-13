@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarsRusoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CarsRusoModelStoreContainer">
+    <EntitySet Name="Categories" EntityType="CarsRusoModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Certifications" EntityType="CarsRusoModel.Store.Certifications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Clients" EntityType="CarsRusoModel.Store.Clients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Images" EntityType="CarsRusoModel.Store.Images" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Languages" EntityType="CarsRusoModel.Store.Languages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Links" EntityType="CarsRusoModel.Store.Links" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LinksCategories" EntityType="CarsRusoModel.Store.LinksCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="News" EntityType="CarsRusoModel.Store.News" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pilots" EntityType="CarsRusoModel.Store.Pilots" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Services" EntityType="CarsRusoModel.Store.Services" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subcategories" EntityType="CarsRusoModel.Store.Subcategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subcategories_Images" EntityType="CarsRusoModel.Store.Subcategories_Images" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Team" EntityType="CarsRusoModel.Store.Team" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Texts" EntityType="CarsRusoModel.Store.Texts" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="Certifications_Image_fk" Association="CarsRusoModel.Store.Certifications_Image_fk">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Certifications" EntitySet="Certifications" />
+    </AssociationSet>
+    <AssociationSet Name="Clients_Images_fk" Association="CarsRusoModel.Store.Clients_Images_fk">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="Images_fk" Association="CarsRusoModel.Store.Images_fk">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Subcategories_Images" EntitySet="Subcategories_Images" />
+    </AssociationSet>
+    <AssociationSet Name="Links_Images_fk" Association="CarsRusoModel.Store.Links_Images_fk">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Links" EntitySet="Links" />
+    </AssociationSet>
+    <AssociationSet Name="Links_LinksCategories_fk" Association="CarsRusoModel.Store.Links_LinksCategories_fk">
+      <End Role="LinksCategories" EntitySet="LinksCategories" />
+      <End Role="Links" EntitySet="Links" />
+    </AssociationSet>
+    <AssociationSet Name="News_Images_fk" Association="CarsRusoModel.Store.News_Images_fk">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="pilots_Image_fk" Association="CarsRusoModel.Store.pilots_Image_fk">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Pilots" EntitySet="Pilots" />
+    </AssociationSet>
+    <AssociationSet Name="Services_AfterImage_fk" Association="CarsRusoModel.Store.Services_AfterImage_fk">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="Services_BeforeImage_fk" Association="CarsRusoModel.Store.Services_BeforeImage_fk">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="Subcategories_fk" Association="CarsRusoModel.Store.Subcategories_fk">
+      <End Role="Subcategories" EntitySet="Subcategories" />
+      <End Role="Subcategories_Images" EntitySet="Subcategories_Images" />
+    </AssociationSet>
+    <AssociationSet Name="Subcategory_Category_fk" Association="CarsRusoModel.Store.Subcategory_Category_fk">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Subcategories" EntitySet="Subcategories" />
+    </AssociationSet>
+    <AssociationSet Name="Team_Image_fk" Association="CarsRusoModel.Store.Team_Image_fk">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="Texts_Languages_fk" Association="CarsRusoModel.Store.Texts_Languages_fk">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Texts" EntitySet="Texts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Certifications">
+    <Key>
+      <PropertyRef Name="CertificationId" />
+    </Key>
+    <Property Name="CertificationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CertificationTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="ImageId" Type="int" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="ImageId" Type="int" />
+  </EntityType>
+  <EntityType Name="Images">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ImageTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImagePath" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Links">
+    <Key>
+      <PropertyRef Name="LinkId" />
+    </Key>
+    <Property Name="LinkId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="LinkUrl" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="LinkCategoryId" Type="int" />
+    <Property Name="ImageId" Type="int" />
+  </EntityType>
+  <EntityType Name="LinksCategories">
+    <Key>
+      <PropertyRef Name="LinksCategoryId" />
+    </Key>
+    <Property Name="LinksCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ImageId" Type="int" />
+    <Property Name="ShortDescription" Type="nvarchar" MaxLength="150" />
+    <Property Name="LongDescription" Type="nvarchar" MaxLength="1500" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Pilots">
+    <Key>
+      <PropertyRef Name="PilotId" />
+    </Key>
+    <Property Name="PilotId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="300" />
+    <Property Name="ImageId" Type="int" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="isCompetition" Type="bit" Nullable="false" />
+    <Property Name="BeforeImage" Type="int" />
+    <Property Name="AfterImage" Type="int" />
+  </EntityType>
+  <EntityType Name="Subcategories">
+    <Key>
+      <PropertyRef Name="SubcategoryId" />
+    </Key>
+    <Property Name="SubcategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subcategories_Images">
+    <Key>
+      <PropertyRef Name="Subcategory_ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="int" Nullable="false" />
+    <Property Name="SubcategoryId" Type="int" Nullable="false" />
+    <Property Name="Subcategory_ImageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="TeamId" />
+    </Key>
+    <Property Name="TeamId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ImageId" Type="int" />
+    <Property Name="mail" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Texts">
+    <Key>
+      <PropertyRef Name="TextId" />
+    </Key>
+    <Property Name="TextId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="Descriptor" Type="nvarchar" MaxLength="50" />
+    <Property Name="Content" Type="text" Nullable="false" />
+  </EntityType>
+  <Association Name="Certifications_Image_fk">
+    <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+    <End Role="Certifications" Type="CarsRusoModel.Store.Certifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Certifications">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Clients_Images_fk">
+    <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+    <End Role="Clients" Type="CarsRusoModel.Store.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Images_fk">
+    <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="1" />
+    <End Role="Subcategories_Images" Type="CarsRusoModel.Store.Subcategories_Images" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Subcategories_Images">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Links_Images_fk">
+    <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+    <End Role="Links" Type="CarsRusoModel.Store.Links" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Links">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Links_LinksCategories_fk">
+    <End Role="LinksCategories" Type="CarsRusoModel.Store.LinksCategories" Multiplicity="0..1" />
+    <End Role="Links" Type="CarsRusoModel.Store.Links" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinksCategories">
+        <PropertyRef Name="LinksCategoryId" />
+      </Principal>
+      <Dependent Role="Links">
+        <PropertyRef Name="LinkCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="News_Images_fk">
+    <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+    <End Role="News" Type="CarsRusoModel.Store.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pilots_Image_fk">
+    <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+    <End Role="Pilots" Type="CarsRusoModel.Store.Pilots" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Pilots">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Services_AfterImage_fk">
+    <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+    <End Role="Services" Type="CarsRusoModel.Store.Services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="AfterImage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Services_BeforeImage_fk">
+    <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+    <End Role="Services" Type="CarsRusoModel.Store.Services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="BeforeImage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Subcategories_fk">
+    <End Role="Subcategories" Type="CarsRusoModel.Store.Subcategories" Multiplicity="1" />
+    <End Role="Subcategories_Images" Type="CarsRusoModel.Store.Subcategories_Images" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subcategories">
+        <PropertyRef Name="SubcategoryId" />
+      </Principal>
+      <Dependent Role="Subcategories_Images">
+        <PropertyRef Name="SubcategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Subcategory_Category_fk">
+    <End Role="Categories" Type="CarsRusoModel.Store.Categories" Multiplicity="1" />
+    <End Role="Subcategories" Type="CarsRusoModel.Store.Subcategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Subcategories">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Team_Image_fk">
+    <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+    <End Role="Team" Type="CarsRusoModel.Store.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Texts_Languages_fk">
+    <End Role="Languages" Type="CarsRusoModel.Store.Languages" Multiplicity="1" />
+    <End Role="Texts" Type="CarsRusoModel.Store.Texts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Texts">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Category_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Category_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Category_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Category_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Certification_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CertificationId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Certification_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CertificationId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Certification_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CertificationTitle" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Certification_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CertificationId" Type="int" Mode="In" />
+    <Parameter Name="CertificationTitle" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Client_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Client_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Client_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Client_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Image_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Image_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Image_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ImageTitle" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImagePath" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Image_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+    <Parameter Name="ImageTitle" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImagePath" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Link_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LinkId" Type="int" Mode="In" />
+    <Parameter Name="LinksCategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Link_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LinkId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Link_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="LinkUrl" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+    <Parameter Name="LinkCategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Link_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LinkId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="LinkUrl" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+    <Parameter Name="LinkCategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LinksCategory_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LinksCategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LinksCategory_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LinksCategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LinksCategory_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="LinksCategory_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LinksCategoryId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="News_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NewsId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="News_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NewsId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="News_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+    <Parameter Name="ShortDescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="LongDescription" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="News_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NewsId" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+    <Parameter Name="ShortDescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="LongDescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Pilot_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PilotId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Pilot_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PilotId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Pilot_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Pilot_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PilotId" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Service_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ServiceId" Type="int" Mode="In" />
+    <Parameter Name="IsCompetition" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Service_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ServiceId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Service_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="isCompetition" Type="bit" Mode="In" />
+    <Parameter Name="BeforeImage" Type="int" Mode="In" />
+    <Parameter Name="AfterImage" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Service_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ServiceId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="isCompetition" Type="bit" Mode="In" />
+    <Parameter Name="BeforeImage" Type="int" Mode="In" />
+    <Parameter Name="AfterImage" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Subcategory_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SubcategoryId" Type="int" Mode="In" />
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Subcategory_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SubcategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Subcategory_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Subcategory_Image_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SubcategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Subcategory_Image_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SubcategoryId" Type="int" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Subcategory_Image_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+    <Parameter Name="SubcategoryId" Type="int" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageTitle" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImagePath" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Subcategory_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SubcategoryId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Team_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TeamId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Team_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TeamId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Team_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+    <Parameter Name="Mail" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Team_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TeamId" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImageId" Type="int" Mode="In" />
+    <Parameter Name="Mail" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Text_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TextId" Type="int" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+    <Parameter Name="Descriptor" Type="nvarchar" Mode="In" />
+    <Parameter Name="Content" Type="text" Mode="In" />
+  </Function>
+  <Function Name="Texts_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TextId" Type="int" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Texts_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TextId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Texts_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+    <Parameter Name="Descriptor" Type="nvarchar" Mode="In" />
+    <Parameter Name="Content" Type="text" Mode="In" />
+  </Function>
+</Schema>

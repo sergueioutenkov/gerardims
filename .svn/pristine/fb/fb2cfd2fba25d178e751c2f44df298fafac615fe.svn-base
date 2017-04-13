@@ -1,0 +1,43 @@
+﻿@model RusoCars.Models.Link
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Link</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LinksCategory.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LinksCategory.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Image.ImagePath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Image.ImagePath)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LinkUrl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LinkUrl)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.LinkId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

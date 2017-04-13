@@ -1,0 +1,46 @@
+﻿@model RusoCars.Models.Link
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Link</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LinksCategory.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LinksCategory.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Image.ImagePath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Image.ImagePath)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LinkUrl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LinkUrl)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

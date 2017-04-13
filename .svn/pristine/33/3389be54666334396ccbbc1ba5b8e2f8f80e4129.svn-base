@@ -1,0 +1,158 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using RusoCars.Models;
+
+namespace RusoCars.Controllers
+{
+    [Authorize]
+    public class CertificationController : Controller
+    {
+        private CarsRusoEntities db = new CarsRusoEntities();
+
+        //
+        // GET: /Certification/
+
+        public ActionResult Index()
+        {
+            var certification = db.Certification_B(null);
+            return View(certification.ToList());
+        }
+
+        //
+        // GET: /Certification/Details/5
+
+        public ActionResult Details(int id = 0)
+        {
+            Certification certification = db.Certification_B(id).ToList<Certification>().First();
+            if (certification == null)
+            {
+                return HttpNotFound();
+            }
+            return View(certification);
+        }
+
+        //
+        // GET: /Certification/Create
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Certification/Create
+
+        [HttpPost]
+        public ActionResult Create(Certification certification)
+        {
+            Random auxRandom = new Random();
+            foreach (string fileName in Request.Files)
+            {
+                string random = auxRandom.Next(0, 99999999).ToString();
+                HttpPostedFileBase file = Helpers.FileHelpers.UploadFile(Request.Files[fileName],
+                                                                       Server.MapPath("~/Images"),
+                                                                       random);
+                if (file != null)
+                {
+                    int imageId = Helpers.FileHelpers.SaveImage(file, random);
+
+                    if (ModelState.IsValid)
+                    {
+                        certification.ImageId = imageId;
+                        db.Certifications.Add(certification);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+
+
+                }
+            }
+            return View(certification);
+        }
+
+        //
+        // GET: /Certification/Edit/5
+
+        public ActionResult Edit(int id = 0)
+        {
+            Certification certification = db.Certification_B(id).ToList<Certification>().First();
+            if (certification == null)
+            {
+                return HttpNotFound();
+            }
+            return View(certification);
+        }
+
+        //
+        // POST: /Certification/Edit/5
+
+        [HttpPost]
+        public ActionResult Edit(Certification certification)
+        {
+            Random auxRandom = new Random();
+            foreach (string fileName in Request.Files)
+            {
+
+                string random = auxRandom.Next(0, 99999999).ToString();
+                HttpPostedFileBase file = Helpers.FileHelpers.UploadFile(Request.Files[fileName],
+                                                                         Server.MapPath("~/Images"),
+                                                                         random);
+
+                int imageId = Helpers.FileHelpers.SaveImage(file, random);
+
+                Helpers.FileHelpers.RemoveFile(certification.ImageId);
+
+
+                if (ModelState.IsValid)
+                {
+                    certification.ImageId = imageId;
+                    db.Entry(certification).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(certification);
+        }
+
+        //
+        // GET: /Certification/Delete/5
+
+        public ActionResult Delete(int id = 0)
+        {
+            Certification certification = db.Certification_B(id).ToList<Certification>().First();
+            if (certification == null)
+            {
+                return HttpNotFound();
+            }
+            return View(certification);
+        }
+
+        //
+        // POST: /Certification/Delete/5
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Certification certification = db.Certification_B(id).ToList<Certification>().First();
+            Image image = db.Image_B(certification.ImageId).ToList<Image>().First();
+
+            Helpers.FileHelpers.RemoveFile(certification.ImageId);
+
+            db.Certifications.Remove(certification);
+            db.Images.Remove(image);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
+    }
+}

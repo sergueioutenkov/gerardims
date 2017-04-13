@@ -1,0 +1,43 @@
+﻿@model RusoCars.Models.Team
+@{
+    ViewBag.Title = "Delete";
+}
+<h2>
+    Borrar</h2>
+<h3>
+    Seguro que desea borrar?</h3>
+<fieldset>
+    <legend>Team</legend>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Image.ImageTitle)
+    </div>
+    <div>
+        <img src=" @Html.DisplayFor(model => model.Image.ImagePath)" alt=" @Html.DisplayNameFor(model => model.Image.ImageTitle)" height="75" width="100" />
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.mail)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.mail)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Borrar" />
+        |
+        @Html.ActionLink("Volver", "Index")
+    </p>
+}

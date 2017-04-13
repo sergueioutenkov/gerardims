@@ -1,0 +1,158 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using RusoCars.Models;
+
+namespace RusoCars.Controllers
+{
+    public class LinkController : Controller
+    {
+        private CarsRusoEntities db = new CarsRusoEntities();
+
+        //
+        // GET: /Link/
+
+        public ActionResult Index()
+        {
+            var links = db.Links.Include(l => l.Image).Include(l => l.LinksCategory);
+            return View(links.ToList());
+        }
+
+        //
+        // GET: /Link/Details/5
+
+        public ActionResult Details(int id = 0)
+        {
+            Link link = db.Link_B(id, null).ToList<Link>().First();
+            if (link == null)
+            {
+                return HttpNotFound();
+            }
+            return View(link);
+        }
+
+        //
+        // GET: /Link/Create
+
+        public ActionResult Create()
+        {
+            ViewBag.LinkCategoryId = new SelectList(db.LinksCategories, "LinksCategoryId", "Name");
+            return View();
+        }
+
+        //
+        // POST: /Link/Create
+
+        [HttpPost]
+        public ActionResult Create(Link link)
+        {
+            Random auxRandom = new Random();
+            foreach (string fileName in Request.Files)
+            {
+                string random = auxRandom.Next(0, 99999999).ToString();
+                HttpPostedFileBase file = Helpers.FileHelpers.UploadFile(Request.Files[fileName],
+                                                                       Server.MapPath("~/Images"),
+                                                                       random);
+                if (file != null)
+                {
+                    int imageId = Helpers.FileHelpers.SaveImage(file, random);
+
+                    if (ModelState.IsValid)
+                    {
+                        link.ImageId = imageId;
+                        db.Links.Add(link);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
+            }
+            ViewBag.LinkCategoryId = new SelectList(db.LinksCategories, "LinksCategoryId", "Name", link.LinkCategoryId);
+            return View(link);
+        }
+
+        //
+        // GET: /Link/Edit/5
+
+        public ActionResult Edit(int id = 0)
+        {
+            Link link = db.Link_B(id, null).ToList<Link>().First();
+            if (link == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.LinkCategoryId = new SelectList(db.LinksCategories, "LinksCategoryId", "Name", link.LinkCategoryId);
+            return View(link);
+        }
+
+        //
+        // POST: /Link/Edit/5
+
+        [HttpPost]
+        public ActionResult Edit(Link link)
+        {
+            Random auxRandom = new Random();
+
+            foreach (string fileName in Request.Files)
+            {
+
+                string random = auxRandom.Next(0, 99999999).ToString();
+                HttpPostedFileBase file = Helpers.FileHelpers.UploadFile(Request.Files[fileName],
+                                                                         Server.MapPath("~/Images"),
+                                                                         random);
+
+                int imageId = Helpers.FileHelpers.SaveImage(file, random);
+
+                Helpers.FileHelpers.RemoveFile(link.ImageId);
+
+                if (ModelState.IsValid)
+                {
+                    link.ImageId = imageId;
+                    db.Entry(link).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            ViewBag.LinkCategoryId = new SelectList(db.LinksCategories, "LinksCategoryId", "Name", link.LinkCategoryId);
+            return View(link);
+
+        }
+        //
+        // GET: /Link/Delete/5
+
+        public ActionResult Delete(int id = 0)
+        {
+            Link link = db.Link_B(id, null).ToList<Link>().First();
+            if (link == null)
+            {
+                return HttpNotFound();
+            }
+            return View(link);
+        }
+
+        //
+        // POST: /Link/Delete/5
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Link link = db.Link_B(id, null).ToList<Link>().First();
+            Image image = db.Image_B(link.ImageId).ToList<Image>().First();
+            Helpers.FileHelpers.RemoveFile(link.ImageId);
+
+            db.Links.Remove(link);
+            db.Images.Remove(image);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
+    }
+}

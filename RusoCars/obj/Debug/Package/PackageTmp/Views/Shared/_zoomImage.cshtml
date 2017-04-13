@@ -1,0 +1,13 @@
+﻿@model RusoCars.Models.Image
+
+<div class="imagen">
+    <div class="titulo">
+    </div>
+    <div class="cerrar">
+        <img src="../../Images/cerrar.png" class="iconito" onclick="cerrarDiv('zoom')" title="Cerrar"/>
+    </div>
+    <img src="@Model.ImagePath" />
+    <p class="descripcion">
+        @(Model.ImageTitle)
+    </p>
+</div>

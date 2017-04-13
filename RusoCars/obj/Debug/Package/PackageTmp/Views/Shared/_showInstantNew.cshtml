@@ -1,0 +1,23 @@
+﻿<div class="fecha">
+    
+    <p class="dia">
+        @Model.Date.Day
+    </p>
+    <p class="mes">
+        <font style="text-transform: capitalize;">
+            @Model.Date.ToString("MMMM", null)
+        </font>
+    </p>
+    <p class="anio">
+        @Model.Date.Year
+    </p>
+</div>
+<div class="imagen">
+    <img src="@(Model.Image.ImagePath)">
+</div>
+<p class="titulo">
+    @(Model.Title)
+</p>
+<div class="contenido">
+    @Html.Raw(Model.LongDescription)
+</div>

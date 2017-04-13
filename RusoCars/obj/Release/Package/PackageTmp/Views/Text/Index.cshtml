@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<RusoCars.Models.Text>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h2>Textos Home y Quiénes Somos</h2>
+
+<p>
+   @* @Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="tabla_datos">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Language.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descriptor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Language.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descriptor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.TextId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.TextId }) |
+            @*Html.ActionLink("Borrar", "Delete", new { id=item.TextId })*@
+        </td>
+    </tr>
+}
+
+</table>

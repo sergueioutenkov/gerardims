@@ -1,0 +1,31 @@
+﻿@model RusoCars.Models.Subcategory
+@{
+    ViewBag.Title = "Delete";
+}
+<h2>
+   Borrar</h2>
+<h3>
+   Está seguro que desea borrar ésta subcategoría?</h3>
+<fieldset>
+    <legend>Subcategory</legend>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Category.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Borrar" />
+        |
+        @Html.ActionLink("Volver", "Index")
+    </p>
+}

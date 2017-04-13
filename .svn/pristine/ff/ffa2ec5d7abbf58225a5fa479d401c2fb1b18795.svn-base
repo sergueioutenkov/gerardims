@@ -1,0 +1,1139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CarsRusoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CarsRusoModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="CarsRusoModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Certifications" EntityType="CarsRusoModel.Store.Certifications" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Clients" EntityType="CarsRusoModel.Store.Clients" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Images" EntityType="CarsRusoModel.Store.Images" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Links" EntityType="CarsRusoModel.Store.Links" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LinksCategories" EntityType="CarsRusoModel.Store.LinksCategories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="News" EntityType="CarsRusoModel.Store.News" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pilots" EntityType="CarsRusoModel.Store.Pilots" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subcategories" EntityType="CarsRusoModel.Store.Subcategories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subcategories_Images" EntityType="CarsRusoModel.Store.Subcategories_Images" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Team" EntityType="CarsRusoModel.Store.Team" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="Certifications_Image_fk" Association="CarsRusoModel.Store.Certifications_Image_fk">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Certifications" EntitySet="Certifications" />
+          </AssociationSet>
+          <AssociationSet Name="Clients_Images_fk" Association="CarsRusoModel.Store.Clients_Images_fk">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="Images_fk" Association="CarsRusoModel.Store.Images_fk">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Subcategories_Images" EntitySet="Subcategories_Images" />
+          </AssociationSet>
+          <AssociationSet Name="Links_Images_fk" Association="CarsRusoModel.Store.Links_Images_fk">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Links" EntitySet="Links" />
+          </AssociationSet>
+          <AssociationSet Name="Links_LinksCategories_fk" Association="CarsRusoModel.Store.Links_LinksCategories_fk">
+            <End Role="LinksCategories" EntitySet="LinksCategories" />
+            <End Role="Links" EntitySet="Links" />
+          </AssociationSet>
+          <AssociationSet Name="News_Images_fk" Association="CarsRusoModel.Store.News_Images_fk">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="pilots_Image_fk" Association="CarsRusoModel.Store.pilots_Image_fk">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Pilots" EntitySet="Pilots" />
+          </AssociationSet>
+          <AssociationSet Name="Subcategories_fk" Association="CarsRusoModel.Store.Subcategories_fk">
+            <End Role="Subcategories" EntitySet="Subcategories" />
+            <End Role="Subcategories_Images" EntitySet="Subcategories_Images" />
+          </AssociationSet>
+          <AssociationSet Name="Subcategory_Category_fk" Association="CarsRusoModel.Store.Subcategory_Category_fk">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Subcategories" EntitySet="Subcategories" />
+          </AssociationSet>
+          <AssociationSet Name="Team_Image_fk" Association="CarsRusoModel.Store.Team_Image_fk">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Certifications">
+          <Key>
+            <PropertyRef Name="CertificationId" />
+          </Key>
+          <Property Name="CertificationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CertificationTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="ImageId" Type="int" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="ImageId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ImageTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="nvarchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Links">
+          <Key>
+            <PropertyRef Name="LinkId" />
+          </Key>
+          <Property Name="LinkId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="LinkUrl" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="LinkCategoryId" Type="int" />
+          <Property Name="ImageId" Type="int" />
+        </EntityType>
+        <EntityType Name="LinksCategories">
+          <Key>
+            <PropertyRef Name="LinksCategoryId" />
+          </Key>
+          <Property Name="LinksCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ImageId" Type="int" />
+          <Property Name="ShortDescription" Type="nvarchar" MaxLength="150" />
+          <Property Name="LongDescription" Type="nvarchar" MaxLength="1500" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Pilots">
+          <Key>
+            <PropertyRef Name="PilotId" />
+          </Key>
+          <Property Name="PilotId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="ImageId" Type="int" />
+        </EntityType>
+        <EntityType Name="Subcategories">
+          <Key>
+            <PropertyRef Name="SubcategoryId" />
+          </Key>
+          <Property Name="SubcategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subcategories_Images">
+          <Key>
+            <PropertyRef Name="Subcategory_ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="int" Nullable="false" />
+          <Property Name="SubcategoryId" Type="int" Nullable="false" />
+          <Property Name="Subcategory_ImageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="TeamId" />
+          </Key>
+          <Property Name="TeamId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ImageId" Type="int" />
+          <Property Name="mail" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="Certifications_Image_fk">
+          <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+          <End Role="Certifications" Type="CarsRusoModel.Store.Certifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Certifications">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Clients_Images_fk">
+          <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="1" />
+          <End Role="Clients" Type="CarsRusoModel.Store.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Images_fk">
+          <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="1" />
+          <End Role="Subcategories_Images" Type="CarsRusoModel.Store.Subcategories_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Subcategories_Images">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Links_Images_fk">
+          <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+          <End Role="Links" Type="CarsRusoModel.Store.Links" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Links">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Links_LinksCategories_fk">
+          <End Role="LinksCategories" Type="CarsRusoModel.Store.LinksCategories" Multiplicity="0..1" />
+          <End Role="Links" Type="CarsRusoModel.Store.Links" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinksCategories">
+              <PropertyRef Name="LinksCategoryId" />
+            </Principal>
+            <Dependent Role="Links">
+              <PropertyRef Name="LinkCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="News_Images_fk">
+          <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+          <End Role="News" Type="CarsRusoModel.Store.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pilots_Image_fk">
+          <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+          <End Role="Pilots" Type="CarsRusoModel.Store.Pilots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Pilots">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Subcategories_fk">
+          <End Role="Subcategories" Type="CarsRusoModel.Store.Subcategories" Multiplicity="1" />
+          <End Role="Subcategories_Images" Type="CarsRusoModel.Store.Subcategories_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subcategories">
+              <PropertyRef Name="SubcategoryId" />
+            </Principal>
+            <Dependent Role="Subcategories_Images">
+              <PropertyRef Name="SubcategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Subcategory_Category_fk">
+          <End Role="Categories" Type="CarsRusoModel.Store.Categories" Multiplicity="1" />
+          <End Role="Subcategories" Type="CarsRusoModel.Store.Subcategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Subcategories">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Team_Image_fk">
+          <End Role="Images" Type="CarsRusoModel.Store.Images" Multiplicity="0..1" />
+          <End Role="Team" Type="CarsRusoModel.Store.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Category_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Category_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Category_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Category_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Certification_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CertificationId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Certification_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CertificationId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Certification_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CertificationTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Certification_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CertificationId" Type="int" Mode="In" />
+          <Parameter Name="CertificationTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Client_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Client_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Client_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Client_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Image_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Image_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Image_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ImageTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImagePath" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Image_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+          <Parameter Name="ImageTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImagePath" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Link_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LinkId" Type="int" Mode="In" />
+          <Parameter Name="LinksCategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Link_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LinkId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Link_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="LinkUrl" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+          <Parameter Name="LinkCategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Link_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LinkId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="LinkUrl" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+          <Parameter Name="LinkCategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="LinksCategory_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LinksCategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="LinksCategory_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LinksCategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="LinksCategory_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="LinksCategory_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LinksCategoryId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="News_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NewsId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="News_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NewsId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="News_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+          <Parameter Name="ShortDescription" Type="nvarchar" Mode="In" />
+          <Parameter Name="LongDescription" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="News_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NewsId" Type="int" Mode="In" />
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+          <Parameter Name="ShortDescription" Type="nvarchar" Mode="In" />
+          <Parameter Name="LongDescription" Type="nvarchar" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Pilot_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PilotId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Pilot_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PilotId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Pilot_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Pilot_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PilotId" Type="int" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Subcategory_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SubcategoryId" Type="int" Mode="In" />
+          <Parameter Name="CategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Subcategory_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SubcategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Subcategory_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="CategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Subcategory_Image_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SubcategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Subcategory_Image_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryId" Type="int" Mode="In" />
+          <Parameter Name="SubcategoryId" Type="int" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImagePath" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Subcategory_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SubcategoryId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="CategoryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Team_B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TeamId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Team_D" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TeamId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Team_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+          <Parameter Name="Mail" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Team_U" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TeamId" Type="int" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ImageId" Type="int" Mode="In" />
+          <Parameter Name="Mail" Type="nvarchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CarsRusoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CarsRusoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Images" EntityType="CarsRusoModel.Image" />
+          <EntitySet Name="News" EntityType="CarsRusoModel.News" />
+          <AssociationSet Name="News_Images_fk" Association="CarsRusoModel.News_Images_fk">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <FunctionImport Name="Image_B" EntitySet="Images" ReturnType="Collection(CarsRusoModel.Image)">
+          <Parameter Name="ImageId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="News_B" EntitySet="News" ReturnType="Collection(CarsRusoModel.News)">
+          <Parameter Name="NewsId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Categories" EntityType="CarsRusoModel.Category" />
+          <EntitySet Name="Subcategories" EntityType="CarsRusoModel.Subcategory" />
+          <AssociationSet Name="Subcategory_Category_fk" Association="CarsRusoModel.Subcategory_Category_fk">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Subcategory" EntitySet="Subcategories" />
+          </AssociationSet>
+          <FunctionImport Name="Category_B" EntitySet="Categories" ReturnType="Collection(CarsRusoModel.Category)">
+          <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Subcategory_B" EntitySet="Subcategories" ReturnType="Collection(CarsRusoModel.Subcategory)">
+            <Parameter Name="SubcategoryId" Mode="In" Type="Int32" />
+            <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Subcategories_Images" EntityType="CarsRusoModel.Subcategories_Images" />
+          <AssociationSet Name="Images_fk" Association="CarsRusoModel.Images_fk">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="Subcategories_Images" EntitySet="Subcategories_Images" />
+          </AssociationSet>
+          <AssociationSet Name="Subcategories_fk" Association="CarsRusoModel.Subcategories_fk">
+            <End Role="Subcategory" EntitySet="Subcategories" />
+            <End Role="Subcategories_Images" EntitySet="Subcategories_Images" />
+          </AssociationSet>
+          <FunctionImport Name="Subcategory_Image_I">
+            <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+            <Parameter Name="SubcategoryId" Mode="In" Type="Int32" />
+            <Parameter Name="ImageId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="ImageTitle" Mode="In" Type="String" />
+            <Parameter Name="ImagePath" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Teams" EntityType="CarsRusoModel.Team" />
+          <AssociationSet Name="Team_Image_fk" Association="CarsRusoModel.Team_Image_fk">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <FunctionImport Name="Team_B" EntitySet="Teams" ReturnType="Collection(CarsRusoModel.Team)">
+          <Parameter Name="TeamId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Subcategory_Image_B" EntitySet="Images" ReturnType="Collection(CarsRusoModel.Image)">
+          <Parameter Name="SubcategoryId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Certifications" EntityType="CarsRusoModel.Certification" />
+          <AssociationSet Name="Certifications_Image_fk" Association="CarsRusoModel.Certifications_Image_fk">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="Certification" EntitySet="Certifications" />
+          </AssociationSet>
+          <FunctionImport Name="Certification_B" EntitySet="Certifications" ReturnType="Collection(CarsRusoModel.Certification)">
+          <Parameter Name="CertificationId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Clients" EntityType="CarsRusoModel.Client" />
+          <AssociationSet Name="Clients_Images_fk" Association="CarsRusoModel.Clients_Images_fk">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <FunctionImport Name="Client_B" EntitySet="Clients" ReturnType="Collection(CarsRusoModel.Client)">
+          <Parameter Name="ClientId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Pilot_B" EntitySet="Pilots" ReturnType="Collection(CarsRusoModel.Pilot)">
+          <Parameter Name="PilotId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Pilots" EntityType="CarsRusoModel.Pilot" />
+          <AssociationSet Name="pilots_Image_fk" Association="CarsRusoModel.pilots_Image_fk">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="Pilot" EntitySet="Pilots" />
+          </AssociationSet>
+          <EntitySet Name="Links" EntityType="CarsRusoModel.Link" />
+          <EntitySet Name="LinksCategories" EntityType="CarsRusoModel.LinksCategory" />
+          <AssociationSet Name="Links_Images_fk" Association="CarsRusoModel.Links_Images_fk">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="Link" EntitySet="Links" />
+          </AssociationSet>
+          <AssociationSet Name="Links_LinksCategories_fk" Association="CarsRusoModel.Links_LinksCategories_fk">
+            <End Role="LinksCategory" EntitySet="LinksCategories" />
+            <End Role="Link" EntitySet="Links" />
+          </AssociationSet>
+          <FunctionImport Name="Link_B" EntitySet="Links" ReturnType="Collection(CarsRusoModel.Link)">
+            <Parameter Name="LinkId" Mode="In" Type="Int32" />
+            <Parameter Name="LinksCategoryId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="LinksCategory_B" EntitySet="LinksCategories" ReturnType="Collection(CarsRusoModel.LinksCategory)">
+          <Parameter Name="LinksCategoryId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="News" Relationship="CarsRusoModel.News_Images_fk" FromRole="Images" ToRole="News" />
+          <Property Type="String" Name="ImageTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subcategories_Images" Relationship="CarsRusoModel.Images_fk" FromRole="Image" ToRole="Subcategories_Images" />
+          <NavigationProperty Name="Teams" Relationship="CarsRusoModel.Team_Image_fk" FromRole="Image" ToRole="Team" />
+          <NavigationProperty Name="Certifications" Relationship="CarsRusoModel.Certifications_Image_fk" FromRole="Image" ToRole="Certification" />
+          <NavigationProperty Name="Clients" Relationship="CarsRusoModel.Clients_Images_fk" FromRole="Image" ToRole="Client" />
+          <NavigationProperty Name="Pilots" Relationship="CarsRusoModel.pilots_Image_fk" FromRole="Image" ToRole="Pilot" />
+          <NavigationProperty Name="Links" Relationship="CarsRusoModel.Links_Images_fk" FromRole="Image" ToRole="Link" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ImageId" Type="Int32" />
+          <Property Name="ShortDescription" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="LongDescription" Type="String" MaxLength="1500" Unicode="true" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" />
+          <NavigationProperty Name="Image" Relationship="CarsRusoModel.News_Images_fk" FromRole="News" ToRole="Images" />
+        </EntityType>
+        <Association Name="News_Images_fk">
+          <End Role="Images" Type="CarsRusoModel.Image" Multiplicity="0..1" />
+          <End Role="News" Type="CarsRusoModel.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subcategories" Relationship="CarsRusoModel.Subcategory_Category_fk" FromRole="Category" ToRole="Subcategory" />
+        </EntityType>
+        <EntityType Name="Subcategory">
+          <Key>
+            <PropertyRef Name="SubcategoryId" />
+          </Key>
+          <Property Type="Int32" Name="SubcategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CategoryId" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="CarsRusoModel.Subcategory_Category_fk" FromRole="Subcategory" ToRole="Category" />
+          <NavigationProperty Name="Subcategories_Images" Relationship="CarsRusoModel.Subcategories_fk" FromRole="Subcategory" ToRole="Subcategories_Images" />
+        </EntityType>
+        <Association Name="Subcategory_Category_fk">
+          <End Type="CarsRusoModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="CarsRusoModel.Subcategory" Role="Subcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Subcategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Subcategories_Images">
+          <Key>
+            <PropertyRef Name="Subcategory_ImageId" />
+          </Key>
+          <Property Type="Int32" Name="ImageId" Nullable="false" />
+          <Property Type="Int32" Name="SubcategoryId" Nullable="false" />
+          <Property Type="Int32" Name="Subcategory_ImageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Image" Relationship="CarsRusoModel.Images_fk" FromRole="Subcategories_Images" ToRole="Image" />
+          <NavigationProperty Name="Subcategory" Relationship="CarsRusoModel.Subcategories_fk" FromRole="Subcategories_Images" ToRole="Subcategory" />
+        </EntityType>
+        <Association Name="Images_fk">
+          <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="1" />
+          <End Type="CarsRusoModel.Subcategories_Images" Role="Subcategories_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Subcategories_Images">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Subcategories_fk">
+          <End Type="CarsRusoModel.Subcategory" Role="Subcategory" Multiplicity="1" />
+          <End Type="CarsRusoModel.Subcategories_Images" Role="Subcategories_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subcategory">
+              <PropertyRef Name="SubcategoryId" />
+            </Principal>
+            <Dependent Role="Subcategories_Images">
+              <PropertyRef Name="SubcategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="TeamId" />
+          </Key>
+          <Property Type="Int32" Name="TeamId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ImageId" />
+          <Property Type="String" Name="mail" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Image" Relationship="CarsRusoModel.Team_Image_fk" FromRole="Team" ToRole="Image" />
+        </EntityType>
+        <Association Name="Team_Image_fk">
+          <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="0..1" />
+          <End Type="CarsRusoModel.Team" Role="Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Certification">
+          <Key>
+            <PropertyRef Name="CertificationId" />
+          </Key>
+          <Property Type="Int32" Name="CertificationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CertificationTitle" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ImageId" />
+          <NavigationProperty Name="Image" Relationship="CarsRusoModel.Certifications_Image_fk" FromRole="Certification" ToRole="Image" />
+        </EntityType>
+        <Association Name="Certifications_Image_fk">
+          <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="0..1" />
+          <End Type="CarsRusoModel.Certification" Role="Certification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Certification">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Type="Int32" Name="ClientId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ImageId" Nullable="false" />
+          <NavigationProperty Name="Image" Relationship="CarsRusoModel.Clients_Images_fk" FromRole="Client" ToRole="Image" />
+        </EntityType>
+        <Association Name="Clients_Images_fk">
+          <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="1" />
+          <End Type="CarsRusoModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Pilot">
+          <Key>
+            <PropertyRef Name="PilotId" />
+          </Key>
+          <Property Type="Int32" Name="PilotId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ImageId" />
+          <NavigationProperty Name="Image" Relationship="CarsRusoModel.pilots_Image_fk" FromRole="Pilot" ToRole="Image" />
+        </EntityType>
+        <Association Name="pilots_Image_fk">
+          <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="0..1" />
+          <End Type="CarsRusoModel.Pilot" Role="Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Link">
+          <Key>
+            <PropertyRef Name="LinkId" />
+          </Key>
+          <Property Type="Int32" Name="LinkId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LinkCategoryId" />
+          <Property Type="Int32" Name="ImageId" />
+          <NavigationProperty Name="Image" Relationship="CarsRusoModel.Links_Images_fk" FromRole="Link" ToRole="Image" />
+          <NavigationProperty Name="LinksCategory" Relationship="CarsRusoModel.Links_LinksCategories_fk" FromRole="Link" ToRole="LinksCategory" />
+          <Property Type="String" Name="LinkUrl" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LinksCategory">
+          <Key>
+            <PropertyRef Name="LinksCategoryId" />
+          </Key>
+          <Property Type="Int32" Name="LinksCategoryId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Links" Relationship="CarsRusoModel.Links_LinksCategories_fk" FromRole="LinksCategory" ToRole="Link" />
+        </EntityType>
+        <Association Name="Links_Images_fk">
+          <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="0..1" />
+          <End Type="CarsRusoModel.Link" Role="Link" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Link">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Links_LinksCategories_fk">
+          <End Type="CarsRusoModel.LinksCategory" Role="LinksCategory" Multiplicity="0..1" />
+          <End Type="CarsRusoModel.Link" Role="Link" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinksCategory">
+              <PropertyRef Name="LinksCategoryId" />
+            </Principal>
+            <Dependent Role="Link">
+              <PropertyRef Name="LinkCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CarsRusoModelStoreContainer" CdmEntityContainer="CarsRusoEntities">
+          <EntitySetMapping Name="Images"><EntityTypeMapping TypeName="CarsRusoModel.Image"><MappingFragment StoreEntitySet="Images">
+            <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+            <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          </MappingFragment></EntityTypeMapping>
+            <EntityTypeMapping TypeName="CarsRusoModel.Image">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="CarsRusoModel.Store.Image_I">
+                  <ScalarProperty Name="ImagePath" ParameterName="ImagePath" />
+                  <ScalarProperty Name="ImageTitle" ParameterName="ImageTitle" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="CarsRusoModel.Store.Image_U">
+                  <ScalarProperty Name="ImagePath" ParameterName="ImagePath" Version="Current" />
+                  <ScalarProperty Name="ImageTitle" ParameterName="ImageTitle" Version="Current" />
+                  <ScalarProperty Name="ImageId" ParameterName="ImageId" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="CarsRusoModel.Store.Image_D">
+                  <ScalarProperty Name="ImageId" ParameterName="ImageId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="News"><EntityTypeMapping TypeName="CarsRusoModel.News"><MappingFragment StoreEntitySet="News">
+            <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+            <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+            <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+          </MappingFragment></EntityTypeMapping>
+            <EntityTypeMapping TypeName="CarsRusoModel.News">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="CarsRusoModel.Store.News_I">
+                  <ScalarProperty Name="LongDescription" ParameterName="LongDescription" />
+                  <ScalarProperty Name="ShortDescription" ParameterName="ShortDescription" />
+                  <ScalarProperty Name="ImageId" ParameterName="ImageId" />
+                  <ScalarProperty Name="Title" ParameterName="Title" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="CarsRusoModel.Store.News_U">
+                  <ScalarProperty Name="Date" ParameterName="Date" Version="Current" />
+                  <ScalarProperty Name="LongDescription" ParameterName="LongDescription" Version="Current" />
+                  <ScalarProperty Name="ShortDescription" ParameterName="ShortDescription" Version="Current" />
+                  <ScalarProperty Name="ImageId" ParameterName="ImageId" Version="Current" />
+                  <ScalarProperty Name="Title" ParameterName="Title" Version="Current" />
+                  <ScalarProperty Name="NewsId" ParameterName="NewsId" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="CarsRusoModel.Store.News_D">
+                  <ScalarProperty Name="NewsId" ParameterName="NewsId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+            </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Image_B" FunctionName="CarsRusoModel.Store.Image_B" />
+          <FunctionImportMapping FunctionImportName="News_B" FunctionName="CarsRusoModel.Store.News_B" />
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="CarsRusoModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="CarsRusoModel.Category">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="CarsRusoModel.Store.Category_I">
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="CarsRusoModel.Store.Category_U">
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="CategoryId" ParameterName="CategoryId" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="CarsRusoModel.Store.Category_D">
+                  <ScalarProperty Name="CategoryId" ParameterName="CategoryId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subcategories">
+            <EntityTypeMapping TypeName="CarsRusoModel.Subcategory">
+              <MappingFragment StoreEntitySet="Subcategories">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SubcategoryId" ColumnName="SubcategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="CarsRusoModel.Subcategory">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="CarsRusoModel.Store.Subcategory_I">
+                  <ScalarProperty Name="CategoryId" ParameterName="CategoryId" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="CarsRusoModel.Store.Subcategory_U">
+                  <ScalarProperty Name="CategoryId" ParameterName="CategoryId" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="SubcategoryId" ParameterName="SubcategoryId" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="CarsRusoModel.Store.Subcategory_D">
+                  <ScalarProperty Name="SubcategoryId" ParameterName="SubcategoryId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Category_B" FunctionName="CarsRusoModel.Store.Category_B" />
+          <FunctionImportMapping FunctionImportName="Subcategory_B" FunctionName="CarsRusoModel.Store.Subcategory_B" />
+          <EntitySetMapping Name="Subcategories_Images">
+            <EntityTypeMapping TypeName="CarsRusoModel.Subcategories_Images">
+              <MappingFragment StoreEntitySet="Subcategories_Images">
+                <ScalarProperty Name="Subcategory_ImageId" ColumnName="Subcategory_ImageId" />
+                <ScalarProperty Name="SubcategoryId" ColumnName="SubcategoryId" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Subcategory_Image_I" FunctionName="CarsRusoModel.Store.Subcategory_Image_I" />
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="CarsRusoModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Team_B" FunctionName="CarsRusoModel.Store.Team_B" />
+          <FunctionImportMapping FunctionImportName="Subcategory_Image_B" FunctionName="CarsRusoModel.Store.Subcategory_Image_B" />
+          <EntitySetMapping Name="Certifications">
+            <EntityTypeMapping TypeName="CarsRusoModel.Certification">
+              <MappingFragment StoreEntitySet="Certifications">
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CertificationTitle" ColumnName="CertificationTitle" />
+                <ScalarProperty Name="CertificationId" ColumnName="CertificationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Certification_B" FunctionName="CarsRusoModel.Store.Certification_B" />
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="CarsRusoModel.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="CarsRusoModel.Client">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="CarsRusoModel.Store.Client_I">
+                  <ScalarProperty Name="ImageId" ParameterName="ImageId" />
+                  <ScalarProperty Name="Description" ParameterName="Description" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="CarsRusoModel.Store.Client_U">
+                  <ScalarProperty Name="ImageId" ParameterName="ImageId" Version="Current" />
+                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="ClientId" ParameterName="ClientId" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="CarsRusoModel.Store.Client_D">
+                  <ScalarProperty Name="ClientId" ParameterName="ClientId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Client_B" FunctionName="CarsRusoModel.Store.Client_B" />
+          <FunctionImportMapping FunctionImportName="Pilot_B" FunctionName="CarsRusoModel.Store.Pilot_B" />
+          <EntitySetMapping Name="Pilots">
+            <EntityTypeMapping TypeName="CarsRusoModel.Pilot">
+              <MappingFragment StoreEntitySet="Pilots">
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="PilotId" ColumnName="PilotId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="CarsRusoModel.Pilot">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="CarsRusoModel.Store.Pilot_I">
+                  <ScalarProperty Name="Description" ParameterName="Description" />
+                  <ScalarProperty Name="ImageId" ParameterName="ImageId" />
+                  <ScalarProperty Name="LastName" ParameterName="LastName" />
+                  <ScalarProperty Name="FirstName" ParameterName="FirstName" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="CarsRusoModel.Store.Pilot_U">
+                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+                  <ScalarProperty Name="ImageId" ParameterName="ImageId" Version="Current" />
+                  <ScalarProperty Name="LastName" ParameterName="LastName" Version="Current" />
+                  <ScalarProperty Name="FirstName" ParameterName="FirstName" Version="Current" />
+                  <ScalarProperty Name="PilotId" ParameterName="PilotId" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="CarsRusoModel.Store.Pilot_D">
+                  <ScalarProperty Name="PilotId" ParameterName="PilotId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Links">
+            <EntityTypeMapping TypeName="CarsRusoModel.Link">
+              <MappingFragment StoreEntitySet="Links">
+                <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="LinkCategoryId" ColumnName="LinkCategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LinkId" ColumnName="LinkId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="CarsRusoModel.Link">
+              <ModificationFunctionMapping>
+                <DeleteFunction FunctionName="CarsRusoModel.Store.Link_D">
+                  <ScalarProperty Name="LinkId" ParameterName="LinkId" />
+                </DeleteFunction>
+                <UpdateFunction FunctionName="CarsRusoModel.Store.Link_U">
+                  <ScalarProperty Name="LinkCategoryId" ParameterName="LinkCategoryId" Version="Current" />
+                  <ScalarProperty Name="ImageId" ParameterName="ImageId" Version="Current" />
+                  <ScalarProperty Name="LinkUrl" ParameterName="LinkUrl" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="LinkId" ParameterName="LinkId" Version="Current" />
+                </UpdateFunction>
+                <InsertFunction FunctionName="CarsRusoModel.Store.Link_I">
+                  <ScalarProperty Name="LinkCategoryId" ParameterName="LinkCategoryId" />
+                  <ScalarProperty Name="ImageId" ParameterName="ImageId" />
+                  <ScalarProperty Name="LinkUrl" ParameterName="LinkUrl" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                </InsertFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinksCategories">
+            <EntityTypeMapping TypeName="CarsRusoModel.LinksCategory">
+              <MappingFragment StoreEntitySet="LinksCategories">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LinksCategoryId" ColumnName="LinksCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="CarsRusoModel.LinksCategory">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="CarsRusoModel.Store.LinksCategory_I">
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="CarsRusoModel.Store.LinksCategory_U">
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="LinksCategoryId" ParameterName="LinksCategoryId" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="CarsRusoModel.Store.LinksCategory_D">
+                  <ScalarProperty Name="LinksCategoryId" ParameterName="LinksCategoryId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Link_B" FunctionName="CarsRusoModel.Store.Link_B" />
+          <FunctionImportMapping FunctionImportName="LinksCategory_B" FunctionName="CarsRusoModel.Store.LinksCategory_B" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CarsModels" ZoomLevel="72">
+        <EntityTypeShape EntityType="CarsRusoModel.Image" Width="1.5" PointX="6.25" PointY="2.25" Height="2.172587890625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarsRusoModel.News" Width="1.5" PointX="8.5" PointY="2" Height="2.3648893229166674" IsExpanded="true" />
+        <AssociationConnector Association="CarsRusoModel.News_Images_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.75" PointY="3.3074446614583337" />
+          <ConnectorPoint PointX="8.5" PointY="3.3074446614583337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CarsRusoModel.Category" Width="1.5" PointX="8.625" PointY="5.375" Height="1.5956835937500005" />
+        <EntityTypeShape EntityType="CarsRusoModel.Subcategory" Width="1.5" PointX="5.125" PointY="5.5" Height="1.9802864583333326" />
+        <AssociationConnector Association="CarsRusoModel.Subcategory_Category_fk" >
+          <ConnectorPoint PointX="8.625" PointY="6.235341796875" />
+          <ConnectorPoint PointX="7.302083333333333" PointY="6.2353417968749989" />
+          <ConnectorPoint PointX="7.135416666666667" PointY="6.235341796875" />
+          <ConnectorPoint PointX="6.625" PointY="6.235341796875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CarsRusoModel.Subcategories_Images" Width="1.875" PointX="11.125" PointY="3.75" Height="1.9802864583333317" />
+        <AssociationConnector Association="CarsRusoModel.Images_fk" >
+          <ConnectorPoint PointX="7.75" PointY="4.5654574951171876" />
+          <ConnectorPoint PointX="11.125" PointY="4.5654574951171876" />
+        </AssociationConnector>
+        <AssociationConnector Association="CarsRusoModel.Subcategories_fk" >
+          <ConnectorPoint PointX="6.625" PointY="7.2567350260416656" />
+          <ConnectorPoint PointX="7.135416666666667" PointY="7.2567350260416648" />
+          <ConnectorPoint PointX="7.302083333333333" PointY="7.2567350260416656" />
+          <ConnectorPoint PointX="10.322916666666666" PointY="7.2567350260416648" />
+          <ConnectorPoint PointX="10.489583333333334" PointY="7.2567350260416656" />
+          <ConnectorPoint PointX="12.0625" PointY="7.2567350260416656" />
+          <ConnectorPoint PointX="12.0625" PointY="5.7302864583333317" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CarsRusoModel.Team" Width="1.5" PointX="3" PointY="3.75" Height="2.1725878906249996" />
+        <AssociationConnector Association="CarsRusoModel.Team_Image_fk" >
+          <ConnectorPoint PointX="6.25" PointY="4.4708968098958337" />
+          <ConnectorPoint PointX="4.5" PointY="4.4708968098958337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CarsRusoModel.Certification" Width="1.5" PointX="3.5" PointY="0.5" Height="1.9802864583333317" />
+        <AssociationConnector Association="CarsRusoModel.Certifications_Image_fk" >
+          <ConnectorPoint PointX="6.25" PointY="3.0838937291666659" />
+          <ConnectorPoint PointX="4.78125" PointY="3.0838937291666659" />
+          <ConnectorPoint PointX="4.78125" PointY="2.4802864583333317" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CarsRusoModel.Client" Width="1.5" PointX="6.625" PointY="8.125" Height="1.9802864583333317" />
+        <AssociationConnector Association="CarsRusoModel.Clients_Images_fk" >
+          <ConnectorPoint PointX="7.21875" PointY="5.1917936197916665" />
+          <ConnectorPoint PointX="7.21875" PointY="8.125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CarsRusoModel.Pilot" Width="1.5" PointX="9.125" PointY="8.125" Height="2.1725878906250031" />
+        <AssociationConnector Association="CarsRusoModel.pilots_Image_fk" >
+          <ConnectorPoint PointX="7.75" PointY="4.909878057454427" />
+          <ConnectorPoint PointX="10.40625" PointY="4.909878057454427" />
+          <ConnectorPoint PointX="10.40625" PointY="8.125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CarsRusoModel.Link" Width="1.5" PointX="11.5" PointY="0.75" Height="2.3648893229166661" />
+        <EntityTypeShape EntityType="CarsRusoModel.LinksCategory" Width="1.5" PointX="14.25" PointY="1" Height="1.5956835937500031" />
+        <AssociationConnector Association="CarsRusoModel.Links_Images_fk" >
+          <ConnectorPoint PointX="7" PointY="2.25" />
+          <ConnectorPoint PointX="7" PointY="1.34375" />
+          <ConnectorPoint PointX="11.5" PointY="1.34375" />
+        </AssociationConnector>
+        <AssociationConnector Association="CarsRusoModel.Links_LinksCategories_fk" >
+          <ConnectorPoint PointX="14.25" PointY="1.7978417968750016" />
+          <ConnectorPoint PointX="13" PointY="1.7978417968750016" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

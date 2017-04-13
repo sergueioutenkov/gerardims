@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Galería";
+}
+<div class="menuIzq">
+    <p class="titulo">
+        Galería - Categorías
+    </p>
+    <div class="lineaRoja">
+    </div>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="instanciaGaleria">
+            <p class="titulo" onclick="showSubcategories('subcategorias_@Model[i].CategoryId')">@Model[i].Name</p>
+            <ul id="subcategorias_@Model[i].CategoryId">
+                @if (Model[i].Subcategories.Count > 0)
+                {
+                    foreach (var subcategory in Model[i].Subcategories)
+                    {
+                    <li>
+                        @Ajax.ActionLink((String)subcategory.Name, "ShowImages", "Public", new { id = (int)subcategory.SubcategoryId }, new AjaxOptions
+                    {
+                        UpdateTargetId = "contenedor",
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "GET",
+                        OnBegin = "ajaxOnBegin('contenedor')",
+                        OnComplete = "ajaxOnComplete('contenedor')",
+                        OnSuccess = "ajaxOnSuccess('contenedor')",
+                        LoadingElementDuration = 2000
+                    })
+                    </li>
+                    }
+                }
+                else
+                { 
+                    <li style="color: #fff;">No hay subcategorias cargadas.</li>
+                }
+            </ul>
+        </div>    
+    }
+</div>
+<div class="contenedor" id="contenedor">
+    <p class="titulo">
+        Seleccione una categoría para mostrar las imágenes.
+    </p>
+</div>
+
+<div class="zoom" id="zoom">
+    
+</div>
+
+<script>
+
+    function showSubcategories(targetId) {
+        var target = document.getElementById(targetId);
+        $(target).slideDown(300);
+    }
+
+</script>

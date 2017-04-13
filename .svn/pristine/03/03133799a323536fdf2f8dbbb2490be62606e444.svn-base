@@ -1,0 +1,61 @@
+﻿@model RusoCars.Models.Link
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Link</legend>
+
+        @Html.HiddenFor(model => model.LinkId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LinkCategoryId, "LinksCategory")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("LinkCategoryId", String.Empty)
+            @Html.ValidationMessageFor(model => model.LinkCategoryId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImageId, "Image")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ImageId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ImageId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LinkUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LinkUrl)
+            @Html.ValidationMessageFor(model => model.LinkUrl)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

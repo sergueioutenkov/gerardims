@@ -1,0 +1,22 @@
+﻿@model RusoCars.Models.LinksCategory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle</h2>
+
+<fieldset>
+    <legend>LinksCategory</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.LinksCategoryId }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

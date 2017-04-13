@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarsRusoModelStoreContainer" CdmEntityContainer="CarsRusoEntities">
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="CarsRusoModel.Image">
+        <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="CarsRusoModel.Image">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="CarsRusoModel.Store.Image_I">
+            <ScalarProperty Name="ImagePath" ParameterName="ImagePath" />
+            <ScalarProperty Name="ImageTitle" ParameterName="ImageTitle" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="CarsRusoModel.Store.Image_U">
+            <ScalarProperty Name="ImagePath" ParameterName="ImagePath" Version="Current" />
+            <ScalarProperty Name="ImageTitle" ParameterName="ImageTitle" Version="Current" />
+            <ScalarProperty Name="ImageId" ParameterName="ImageId" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="CarsRusoModel.Store.Image_D">
+            <ScalarProperty Name="ImageId" ParameterName="ImageId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="CarsRusoModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="CarsRusoModel.News">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="CarsRusoModel.Store.News_I">
+            <ScalarProperty Name="LongDescription" ParameterName="LongDescription" />
+            <ScalarProperty Name="ShortDescription" ParameterName="ShortDescription" />
+            <ScalarProperty Name="ImageId" ParameterName="ImageId" />
+            <ScalarProperty Name="Title" ParameterName="Title" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="CarsRusoModel.Store.News_U">
+            <ScalarProperty Name="Date" ParameterName="Date" Version="Current" />
+            <ScalarProperty Name="LongDescription" ParameterName="LongDescription" Version="Current" />
+            <ScalarProperty Name="ShortDescription" ParameterName="ShortDescription" Version="Current" />
+            <ScalarProperty Name="ImageId" ParameterName="ImageId" Version="Current" />
+            <ScalarProperty Name="Title" ParameterName="Title" Version="Current" />
+            <ScalarProperty Name="NewsId" ParameterName="NewsId" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="CarsRusoModel.Store.News_D">
+            <ScalarProperty Name="NewsId" ParameterName="NewsId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Image_B" FunctionName="CarsRusoModel.Store.Image_B" />
+    <FunctionImportMapping FunctionImportName="News_B" FunctionName="CarsRusoModel.Store.News_B" />
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="CarsRusoModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="CarsRusoModel.Category">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="CarsRusoModel.Store.Category_I">
+            <ScalarProperty Name="Name" ParameterName="Name" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="CarsRusoModel.Store.Category_U">
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="CategoryId" ParameterName="CategoryId" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="CarsRusoModel.Store.Category_D">
+            <ScalarProperty Name="CategoryId" ParameterName="CategoryId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subcategories">
+      <EntityTypeMapping TypeName="CarsRusoModel.Subcategory">
+        <MappingFragment StoreEntitySet="Subcategories">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubcategoryId" ColumnName="SubcategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="CarsRusoModel.Subcategory">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="CarsRusoModel.Store.Subcategory_I">
+            <ScalarProperty Name="CategoryId" ParameterName="CategoryId" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="CarsRusoModel.Store.Subcategory_U">
+            <ScalarProperty Name="CategoryId" ParameterName="CategoryId" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="SubcategoryId" ParameterName="SubcategoryId" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="CarsRusoModel.Store.Subcategory_D">
+            <ScalarProperty Name="SubcategoryId" ParameterName="SubcategoryId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Category_B" FunctionName="CarsRusoModel.Store.Category_B" />
+    <FunctionImportMapping FunctionImportName="Subcategory_B" FunctionName="CarsRusoModel.Store.Subcategory_B" />
+    <EntitySetMapping Name="Subcategories_Images">
+      <EntityTypeMapping TypeName="CarsRusoModel.Subcategories_Images">
+        <MappingFragment StoreEntitySet="Subcategories_Images">
+          <ScalarProperty Name="Subcategory_ImageId" ColumnName="Subcategory_ImageId" />
+          <ScalarProperty Name="SubcategoryId" ColumnName="SubcategoryId" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Subcategory_Image_I" FunctionName="CarsRusoModel.Store.Subcategory_Image_I" />
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="CarsRusoModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Team_B" FunctionName="CarsRusoModel.Store.Team_B" />
+    <FunctionImportMapping FunctionImportName="Subcategory_Image_B" FunctionName="CarsRusoModel.Store.Subcategory_Image_B" />
+    <EntitySetMapping Name="Certifications">
+      <EntityTypeMapping TypeName="CarsRusoModel.Certification">
+        <MappingFragment StoreEntitySet="Certifications">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CertificationTitle" ColumnName="CertificationTitle" />
+          <ScalarProperty Name="CertificationId" ColumnName="CertificationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Certification_B" FunctionName="CarsRusoModel.Store.Certification_B" />
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="CarsRusoModel.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="CarsRusoModel.Client">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="CarsRusoModel.Store.Client_I">
+            <ScalarProperty Name="ImageId" ParameterName="ImageId" />
+            <ScalarProperty Name="Description" ParameterName="Description" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="CarsRusoModel.Store.Client_U">
+            <ScalarProperty Name="ImageId" ParameterName="ImageId" Version="Current" />
+            <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="ClientId" ParameterName="ClientId" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="CarsRusoModel.Store.Client_D">
+            <ScalarProperty Name="ClientId" ParameterName="ClientId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Client_B" FunctionName="CarsRusoModel.Store.Client_B" />
+    <FunctionImportMapping FunctionImportName="Pilot_B" FunctionName="CarsRusoModel.Store.Pilot_B" />
+    <EntitySetMapping Name="Pilots">
+      <EntityTypeMapping TypeName="CarsRusoModel.Pilot">
+        <MappingFragment StoreEntitySet="Pilots">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="PilotId" ColumnName="PilotId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="CarsRusoModel.Pilot">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="CarsRusoModel.Store.Pilot_I">
+            <ScalarProperty Name="Description" ParameterName="Description" />
+            <ScalarProperty Name="ImageId" ParameterName="ImageId" />
+            <ScalarProperty Name="LastName" ParameterName="LastName" />
+            <ScalarProperty Name="FirstName" ParameterName="FirstName" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="CarsRusoModel.Store.Pilot_U">
+            <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+            <ScalarProperty Name="ImageId" ParameterName="ImageId" Version="Current" />
+            <ScalarProperty Name="LastName" ParameterName="LastName" Version="Current" />
+            <ScalarProperty Name="FirstName" ParameterName="FirstName" Version="Current" />
+            <ScalarProperty Name="PilotId" ParameterName="PilotId" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="CarsRusoModel.Store.Pilot_D">
+            <ScalarProperty Name="PilotId" ParameterName="PilotId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Links">
+      <EntityTypeMapping TypeName="CarsRusoModel.Link">
+        <MappingFragment StoreEntitySet="Links">
+          <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="LinkCategoryId" ColumnName="LinkCategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LinkId" ColumnName="LinkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="CarsRusoModel.Link">
+        <ModificationFunctionMapping>
+          <DeleteFunction FunctionName="CarsRusoModel.Store.Link_D">
+            <ScalarProperty Name="LinkId" ParameterName="LinkId" />
+          </DeleteFunction>
+          <UpdateFunction FunctionName="CarsRusoModel.Store.Link_U">
+            <ScalarProperty Name="LinkCategoryId" ParameterName="LinkCategoryId" Version="Current" />
+            <ScalarProperty Name="ImageId" ParameterName="ImageId" Version="Current" />
+            <ScalarProperty Name="LinkUrl" ParameterName="LinkUrl" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="LinkId" ParameterName="LinkId" Version="Current" />
+          </UpdateFunction>
+          <InsertFunction FunctionName="CarsRusoModel.Store.Link_I">
+            <ScalarProperty Name="LinkCategoryId" ParameterName="LinkCategoryId" />
+            <ScalarProperty Name="ImageId" ParameterName="ImageId" />
+            <ScalarProperty Name="LinkUrl" ParameterName="LinkUrl" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+          </InsertFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinksCategories">
+      <EntityTypeMapping TypeName="CarsRusoModel.LinksCategory">
+        <MappingFragment StoreEntitySet="LinksCategories">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LinksCategoryId" ColumnName="LinksCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="CarsRusoModel.LinksCategory">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="CarsRusoModel.Store.LinksCategory_I">
+            <ScalarProperty Name="Name" ParameterName="Name" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="CarsRusoModel.Store.LinksCategory_U">
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="LinksCategoryId" ParameterName="LinksCategoryId" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="CarsRusoModel.Store.LinksCategory_D">
+            <ScalarProperty Name="LinksCategoryId" ParameterName="LinksCategoryId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Link_B" FunctionName="CarsRusoModel.Store.Link_B" />
+    <FunctionImportMapping FunctionImportName="LinksCategory_B" FunctionName="CarsRusoModel.Store.LinksCategory_B" />
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="CarsRusoModel.Service">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AfterImage" ColumnName="AfterImage" />
+          <ScalarProperty Name="BeforeImage" ColumnName="BeforeImage" />
+          <ScalarProperty Name="isCompetition" ColumnName="isCompetition" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="CarsRusoModel.Service">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="CarsRusoModel.Store.Service_I">
+            <ScalarProperty Name="isCompetition" ParameterName="isCompetition" />
+            <ScalarProperty Name="Description" ParameterName="Description" />
+            <ScalarProperty Name="AfterImage" ParameterName="AfterImage" />
+            <ScalarProperty Name="BeforeImage" ParameterName="BeforeImage" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="CarsRusoModel.Store.Service_U">
+            <ScalarProperty Name="isCompetition" ParameterName="isCompetition" Version="Current" />
+            <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+            <ScalarProperty Name="AfterImage" ParameterName="AfterImage" Version="Current" />
+            <ScalarProperty Name="BeforeImage" ParameterName="BeforeImage" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="ServiceId" ParameterName="ServiceId" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="CarsRusoModel.Store.Service_D">
+            <ScalarProperty Name="ServiceId" ParameterName="ServiceId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Subcategory_Image_D" FunctionName="CarsRusoModel.Store.Subcategory_Image_D" />
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="CarsRusoModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Texts">
+      <EntityTypeMapping TypeName="CarsRusoModel.Text">
+        <MappingFragment StoreEntitySet="Texts">
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Descriptor" ColumnName="Descriptor" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="TextId" ColumnName="TextId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="CarsRusoModel.Text">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="CarsRusoModel.Store.Texts_I">
+            <ScalarProperty Name="Content" ParameterName="Content" />
+            <ScalarProperty Name="Descriptor" ParameterName="Descriptor" />
+            <ScalarProperty Name="LanguageId" ParameterName="LanguageId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="CarsRusoModel.Store.Text_U">
+            <ScalarProperty Name="Content" ParameterName="Content" Version="Current" />
+            <ScalarProperty Name="Descriptor" ParameterName="Descriptor" Version="Current" />
+            <ScalarProperty Name="LanguageId" ParameterName="LanguageId" Version="Current" />
+            <ScalarProperty Name="TextId" ParameterName="TextId" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="CarsRusoModel.Store.Texts_D">
+            <ScalarProperty Name="TextId" ParameterName="TextId" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Texts_B" FunctionName="CarsRusoModel.Store.Texts_B" />
+    <FunctionImportMapping FunctionImportName="Service_B" FunctionName="CarsRusoModel.Store.Service_B" />
+  </EntityContainerMapping>
+</Mapping>

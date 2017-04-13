@@ -1,0 +1,45 @@
+﻿@model IEnumerable<RusoCars.Models.Certification>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CertificationTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image.ImagePath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CertificationTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+         <td>
+                <img src="@Html.DisplayFor(modelItem => item.Image.ImagePath)" alt="@Html.DisplayFor(modelItem => item.Image.ImageTitle)" height="75" width="100" />
+            </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CertificationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CertificationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CertificationId })
+        </td>
+    </tr>
+}
+
+</table>

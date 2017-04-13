@@ -1,0 +1,49 @@
+﻿@model RusoCars.Models.Service
+@{
+    ViewBag.Title = "Delete";
+}
+<h2>
+    Borrar</h2>
+<h3>
+    Seguro que desea borrar?</h3>
+<fieldset>
+    <legend>Service</legend>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.isCompetition)
+    </div>
+    <div class="display-field">
+        @(Model.isCompetition ? "Competicion" : "Mecanica")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageBefore.ImageTitle)
+    </div>
+    <div class="display-field">
+        <img src=" @Html.DisplayFor(model => model.ImageBefore.ImagePath)" alt=" @Html.DisplayNameFor(model => model.ImageBefore.ImageTitle)" height="75" width="100" />
+    </div>
+    <div class="display-label">
+        @Html.DisplayFor(model => model.ImageAfter.ImageTitle)
+    </div>
+    <div class="display-field">
+        <img src=" @Html.DisplayFor(model => model.ImageAfter.ImagePath)" alt=" @Html.DisplayNameFor(model => model.ImageAfter.ImageTitle)" height="75" width="100" />
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Borrar" />
+        |
+        @Html.ActionLink("Volver", "Index")
+    </p>
+}

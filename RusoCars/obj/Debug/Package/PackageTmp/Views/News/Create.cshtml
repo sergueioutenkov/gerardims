@@ -1,0 +1,57 @@
+﻿@model RusoCars.Models.News
+@using RusoCars.Helpers;
+@{
+    ViewBag.Title = "Create";
+}
+<h2>
+    Crear</h2>
+@using (Html.BeginForm("Create", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+     @Html.ValidationSummary(true)
+<fieldset>
+    <legend>News</legend>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Title)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Title)
+        @Html.ValidationMessageFor(model => model.Title)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ImageId, "Image")
+    </div>
+    <div class="editor-label">
+         @Html.File("file", "FileUploader") 
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ShortDescription)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.ShortDescription)
+        @Html.ValidationMessageFor(model => model.ShortDescription)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.LongDescription)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.LongDescription)
+        @Html.ValidationMessageFor(model => model.LongDescription)
+    </div>
+    <p>
+        <input type="submit" value="Crear" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("Volver", "Index")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval");
+     <script src="../../Scripts/tiny_mce/tiny_mce_src.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                tinyMCE.init({
+                    mode: "textareas",
+                    theme: "simple"
+                });
+        </script>
+}

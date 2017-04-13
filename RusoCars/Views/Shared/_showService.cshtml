@@ -1,0 +1,57 @@
+﻿@model RusoCars.Models.Service
+    <p class="titulo" style="margin:0px 0px 20px 0px;">
+        @Model.Name
+    </p>
+    <div class="lineaRoja" style="margin-bottom:20px;"></div>
+    <div class="clear">
+        
+    </div>
+    <div class="imagen" style="width:300px; float:left; color:#fff; background-color:rgba(255,255,255,0.3);">
+        <img src="@(Model.ImageBefore.ImagePath)">        
+        @Ajax.ActionLink(" ", "ZoomImage", "Public", new { id = (int)Model.ImageBefore.ImageId }, new AjaxOptions
+            {
+                UpdateTargetId = "zoom",
+                InsertionMode = InsertionMode.Replace,
+                HttpMethod = "GET",
+                OnBegin = "ajaxOnBegin('zoom')",
+                OnComplete = "ajaxOnComplete('zoom')",
+                OnSuccess = "ajaxOnSuccess('zoom')",
+                LoadingElementDuration = 2000
+            })
+    </div>
+    <div class="imagen" style="width:300px; float:right; color:#fff; background-color:rgba(255,255,255,0.3);">
+        @Ajax.ActionLink(" ", "ZoomImage", "Public", new { id = (int)Model.ImageAfter.ImageId }, new AjaxOptions
+            {
+                UpdateTargetId = "zoom",
+                InsertionMode = InsertionMode.Replace,
+                HttpMethod = "GET",
+                OnBegin = "ajaxOnBegin('zoom')",
+                OnComplete = "ajaxOnComplete('zoom')",
+                OnSuccess = "ajaxOnSuccess('zoom')",
+                LoadingElementDuration = 2000
+            })
+        <img src="@(Model.ImageAfter.ImagePath)">
+    </div>
+    <div class="clear">
+        
+    </div>
+    <p class="descripcion" style="text-align:center">
+        @(Model.Description)
+    </p>
+
+<style>
+
+    .imagen
+    {
+        position:relative;
+        }
+    .imagen a
+    {
+        width:300px;
+        height:100%;
+        position:absolute;
+        top:0;
+        left:0;
+        }
+
+</style>

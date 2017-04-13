@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Links";
+}
+
+<div class="menuIzq">
+    <p class="titulo">
+        Links
+    </p>
+    <div class="lineaRoja">
+                        
+    </div>
+    @for (int i = 0; i < Model.Count ; i++)
+    {
+        <div class="instanciaLinks"> 
+            <p>
+                @Model[i].Name        
+            </p>
+            @Ajax.ActionLink(" ", "ShowInstantLinks", "Public", new { id = (int)Model[i].LinksCategoryId }, new AjaxOptions
+            {
+               UpdateTargetId = "contenedor",
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "GET",
+               OnBegin = "ajaxOnBegin('contenedor')",
+               OnComplete = "ajaxOnComplete('contenedor')",
+               OnSuccess = "ajaxOnSuccess('contenedor')",               
+               LoadingElementDuration = 2000
+            })
+        </div>    
+    }
+</div>
+<div class="contenedor contenedorLinks" id="contenedor">
+    @Html.Action("ShowInstantLinks", (int)Model[0].LinksCategoryId)
+</div>
+

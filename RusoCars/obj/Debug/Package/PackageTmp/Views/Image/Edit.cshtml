@@ -1,0 +1,45 @@
+﻿@model RusoCars.Models.Image
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Image</legend>
+
+        @Html.HiddenFor(model => model.ImageId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImageTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImageTitle)
+            @Html.ValidationMessageFor(model => model.ImageTitle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImagePath)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImagePath)
+            @Html.ValidationMessageFor(model => model.ImagePath)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

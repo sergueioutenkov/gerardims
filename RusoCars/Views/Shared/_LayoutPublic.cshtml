@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>@ViewBag.Title - Gerardi MotorSport</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        @Styles.Render("~/Content/PublicCss")
+        @Scripts.Render("~/bundles/capicua")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/modernizr")
+		<script src="/Scripts/capicua.js"></script>
+
+    </head>
+    <body onload="">
+        <div id="pagina">
+            <div class="menuTop">
+                <div class="logo">
+               
+                 
+                    <img src="../../Images/logo.png" />
+                    
+                     <p style="color:White; font-size:small;"><cite><font style="text-transform: capitalize;">
+                      @DateTime.Today.ToString("D", null).ToString()</font> </cite><br /> <br /><br />
+                    <b>Tel. +54 (261) 445 1754 - Las Heras 1949 - San José - Guaymallén - Mendoza - Argentina - C.P. M5519DBE - <a href="mailto:info@gerardims.com" title="Mail" style="color:Aqua; text-decoration:none;">info@gerardims.com</a></b>
+                  </p>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Index", "Public")" class="@(ViewBag.active == "index" ? "active" : "")">HOME</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("AboutUs", "Public")" class="@(ViewBag.active == "aboutUs" ? "active" : "")">QUIENES SOMOS</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("News", "Public")" class="@(ViewBag.active == "news" ? "active" : "")">NOTICIAS</a>
+                        </li>
+                       @* <li>
+                            <a href="@Url.Action("Certifications", "Public")" class="@(ViewBag.active == "certifications" ? "active" : "")">CERTIFICACIONES</a>
+                        </li>*@
+                        <li>
+                            <a href="@Url.Action("Team", "Public")" class="@(ViewBag.active == "team" ? "active" : "")">EQUIPO</a>
+                        </li>
+                        @*<li>
+                            <a href="@Url.Action("Links", "Public")" class="@(ViewBag.active == "links" ? "active" : "")">LINKS</a>
+                        </li>*@
+                       @* <li>
+                            <a href="@Url.Action("Pilots", "Public")" class="@(ViewBag.active == "pilots" ? "active" : "")">PILOTOS</a>
+                        </li>*@
+                        <li>
+                            <a href="@Url.Action("Images", "Public")" class="@(ViewBag.active == "images" ? "active" : "")">IMÁGENES</a>
+                        </li>
+                       @* <li>
+                            <a href="@Url.Action("Clients", "Public")" class="@(ViewBag.active == "clients" ? "active" : "")">CLIENTES</a>
+                        </li>*@
+                        <li>
+                            <a href="@Url.Action("Services", "Public")" class="@(ViewBag.active == "services" ? "active" : "")">SERVICIOS</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Contact", "Public")" class="@(ViewBag.active == "contact" ? "active" : "")">CONTACTO</a>
+                        </li>
+                    </ul>
+                    <div class="lineaRoja">
+
+                    </div>
+                </div>
+            </div>
+            <div class="middle"> 
+                @RenderBody()   
+            </div>
+            <div class="clear" style="height:55px;">
+            
+            </div>
+            <div class="footer">            
+                <div class="social">
+                    <a href="https://www.facebook.com/pages/Gerardi-Motorsport/259602980758357?fref=ts" target="_blank" title="Facebook"><img src="../../Images/fbIcon.png" alt="Facebook"/></a>
+                    <a href="Https://twitter.com/gerardimotors" target="_blank" title="Twitter"><img src="../../Images/twIcon.png" alt="Facebook"/></a>
+                     <a href="http://www.youtube.com/seccionvideos" target="_blank" title="YouTube"><img src="../../Images/ytIcon.png" alt="Facebook"/></a>
+                </div>
+                <div class="capicua">
+                  <img src="../../Images/capicua.png" alt="Desarrollado por Capicua - Web Development"/>
+                </div>
+                <p>
+                    Todos los derechos Reservados Gerardi Motorsport ® - Tel. +54 (261) 445 1754 - <a href="mailto:info@gerardims.com" title="Mail" style="color:Aqua; text-decoration:none;">info@gerardims.com</a>
+                </p>
+                <p>
+                     Las Heras 1949 - San José - Guaymallén - Mendoza - Argentina - C.P. M5519DBE
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
+

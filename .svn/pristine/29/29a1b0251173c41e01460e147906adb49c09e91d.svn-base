@@ -1,0 +1,161 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using RusoCars.Models;
+using System.IO;
+using System.Web.Helpers;
+
+namespace RusoCars.Controllers
+{
+    [Authorize]
+    public class SubcategoryController : Controller
+    {
+        private CarsRusoEntities db = new CarsRusoEntities();
+
+
+
+        public PartialViewResult AddImageUploader()
+        {
+            return PartialView("_fileUploader");
+        }
+        //
+        // GET: /Subcategory/
+
+        public ActionResult Index()
+        {
+            var subcategories = db.Subcategories.Include(s => s.Category);
+            return View(subcategories.ToList());
+        }
+
+        //
+        // GET: /Subcategory/Details/5
+
+        public ActionResult Details(int id = 0)
+        {
+            Subcategory subcategory = db.Subcategory_B(id).ToList<Subcategory>().First();
+            if (subcategory == null)
+            {
+                return HttpNotFound();
+            }
+            return View(subcategory);
+        }
+
+        //
+        // GET: /Subcategory/Create
+
+        public ActionResult Create()
+        {
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name");
+            return View();
+        }
+
+        //
+        // POST: /Subcategory/Create
+
+        [HttpPost]
+        public ActionResult Create(Subcategory subcategory)
+        {
+            bool firstTime = true;
+            Random auxRandom = new Random();
+            foreach (string fileName in Request.Files)
+            {
+                string random = auxRandom.Next(0, 99999999).ToString();
+                HttpPostedFileBase file = Helpers.FileHelpers.UploadFile(Request.Files[fileName],
+                                                                       Server.MapPath("~/Images"),
+                                                                       random);
+
+                Image image = new Image();
+                image.ImageTitle = file.FileName;
+                image.ImagePath = "../../Images/" + random + file.FileName;
+                if (firstTime)
+                {
+                    db.Subcategory_Image_I(subcategory.CategoryId, null, null, subcategory.Name, image.ImageTitle, image.ImagePath);
+                    firstTime = false;
+                }
+                else
+                {
+                    int SubcategoryId = db.Subcategories.Max(s => s.SubcategoryId);
+                    db.Subcategory_Image_I(subcategory.CategoryId, SubcategoryId, null, subcategory.Name, image.ImageTitle, image.ImagePath);
+                }
+            }
+            if (ModelState.IsValid)
+            {
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+
+
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name", subcategory.CategoryId);
+            return View(subcategory);
+        }
+
+        //
+        // GET: /Subcategory/Edit/5
+
+        public ActionResult Edit(int id = 0)
+        {
+            Subcategory subcategory = db.Subcategory_B(id).ToList<Subcategory>().First();
+            if (subcategory == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.CategoryId = new SelectList(db.Category_B(null), "CategoryId", "Name", subcategory.CategoryId);
+            var images = db.Subcategory_Image_B(id).ToList<Image>();
+            ViewBag.Images = images;
+            return View(subcategory);
+        }
+
+        //
+        // POST: /Subcategory/Edit/5
+
+        [HttpPost]
+        public ActionResult Edit(Subcategory subcategory)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(subcategory).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.CategoryId = new SelectList(db.Category_B(null), "CategoryId", "Name", subcategory.CategoryId);
+            return View(subcategory);
+        }
+
+        //
+        // GET: /Subcategory/Delete/5
+
+        public ActionResult Delete(int id = 0)
+        {
+            Subcategory subcategory = db.Subcategory_B(id).ToList<Subcategory>().First();
+            if (subcategory == null)
+            {
+                return HttpNotFound();
+            }
+            return View(subcategory);
+        }
+
+        //
+        // POST: /Subcategory/Delete/5
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Subcategory subcategory = db.Subcategory_B(id).ToList<Subcategory>().First();
+            db.Subcategories.Remove(subcategory);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
+
+    }
+}

@@ -1,0 +1,163 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+
+namespace RusoCars.Models
+{
+    [MetadataType(typeof(CategoryMetadata))]
+    partial class Category
+    {
+    }
+
+    class CategoryMetadata
+    {
+        [DisplayName("Nombre")]
+        [Required(ErrorMessage = "Debe insertar un nombre")]
+        public string Name { get; set; }
+    }
+
+    [MetadataType(typeof(CertificationMetadata))]
+    partial class Certification
+    {
+
+    }
+    class CertificationMetadata
+    {
+        [DisplayName("Titulo")]
+        [Required(ErrorMessage = "Debe insertar un titulo")]
+        public string CertificationTitle { get; set; }
+
+        [DisplayName("Descripcion")]
+        [Required(ErrorMessage = "Debe insertar una descripcion")]
+        public string Description { get; set; }
+    }
+    [MetadataType(typeof(NewsMetadata))]
+    partial class News
+    {
+    }
+
+    class NewsMetadata
+    {
+        [DisplayName("Titulo")]
+        [Required(ErrorMessage = "Debe insertar un titulo")]
+        [StringLength(50, MinimumLength = 5,
+            ErrorMessage = "Debe tener como minimo 5 caracteres")]
+        public string Title { get; set; }
+        [DisplayName("Descripcion corta")]
+        [Required(ErrorMessage = "Debe insertar una descripcion corta")]
+        [StringLength(150, ErrorMessage = "La descripcion no debe tener mas de 150 caracteres")]
+        public string ShortDescription { get; set; }
+        [DisplayName("Descripcion larga")]
+        [Required(ErrorMessage = "Debe insertar una descripcion larga")]
+        public string LongDescription { get; set; }
+        //   [Range(typeof(DateTime), "1/1/2012", "12/31/9999")]
+        [DisplayName("Fecha")]
+        public Nullable<System.DateTime> Date { get; set; }
+    }
+
+
+    [MetadataType(typeof(TeamMetadata))]
+    public partial class Team
+    {
+    }
+
+    class TeamMetadata
+    {
+        [DisplayName("Nombre")]
+        [Required(ErrorMessage = "Debe insertar nombre")]
+        public string FirstName { get; set; }
+        [DisplayName("Apellido")]
+        [Required(ErrorMessage = "Debe insertar apellido")]
+        public string LastName { get; set; }
+        [DisplayName("Email")]
+        [Required(ErrorMessage = "Debe insertar un email")]
+        [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b")]
+        public string mail { get; set; }
+
+    }
+    [MetadataType(typeof(ImageMetadata))]
+    public partial class Image
+    {
+    }
+    class ImageMetadata
+    {
+        [DisplayName("Titulo imagen")]
+        public string ImageTitle { get; set; }
+    }
+
+    [MetadataType(typeof(subcategoryMetadata))]
+    public partial class subcategory
+    {
+    }
+    class subcategoryMetadata
+    {
+        [DisplayName("Nombre")]
+        [Required(ErrorMessage = "Debe insertar un nombre")]
+        public string Name { get; set; }
+    }
+    [MetadataType(typeof(ClientMetadata))]
+    public partial class Client
+    {
+    }
+    class ClientMetadata
+    {
+        [DisplayName("Nombre")]
+        [Required(ErrorMessage = "Debe insertar un nombre")]
+        public string Name { get; set; }
+        [DisplayName("Descripcion")]
+        [Required(ErrorMessage = "Debe insertar una descripcion")]
+        public string Description { get; set; }
+    }
+    [MetadataType(typeof(PilotMetadata))]
+    public partial class Pilot
+    { }
+
+    class PilotMetadata
+    {
+        [DisplayName("Nombre")]
+        [Required(ErrorMessage = "Debe insertar un nombre")]
+        public string FirstName { get; set; }
+        [DisplayName("Apellido")]
+        [Required(ErrorMessage = "Debe insertar un apellido")]
+        public string LastName { get; set; }
+        [DisplayName("Descripcion")]
+        public string Description { get; set; }
+    }
+    [MetadataType(typeof(LinkMetadata))]
+    public partial class Link
+    {
+    }
+
+    class LinkMetadata
+    {
+        [DisplayName("Nombre")]
+        [Required(ErrorMessage = "Debe insertar un nombre")]
+        public string Name { get; set; }
+        [DisplayName("Link")]
+        [Required(ErrorMessage = "Debe insertar un link")]
+        public string LinkUrl { get; set; }
+
+    }
+    [MetadataType(typeof(LinksCategoryMetadata))]
+    public partial class LinksCategory
+    {
+    }
+
+    class LinksCategoryMetadata
+    {
+        [DisplayName("Nombre")]
+        [Required(ErrorMessage = "Debe insertar un nombre")]
+        public string Name { get; set; }
+    }
+
+    public partial class Subcategory{}
+
+    class SubcategoryMetada
+    {
+        [DisplayName("Nombre")]
+        [Required(ErrorMessage = "Debe insertar un nombre")]
+        public string Name { get; set; }
+    }
+}

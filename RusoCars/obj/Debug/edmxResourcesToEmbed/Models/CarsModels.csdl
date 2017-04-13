@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarsRusoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="CarsRusoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Images" EntityType="CarsRusoModel.Image" />
+    <EntitySet Name="News" EntityType="CarsRusoModel.News" />
+    <AssociationSet Name="News_Images_fk" Association="CarsRusoModel.News_Images_fk">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <FunctionImport Name="Image_B" EntitySet="Images" ReturnType="Collection(CarsRusoModel.Image)">
+      <Parameter Name="ImageId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="News_B" EntitySet="News" ReturnType="Collection(CarsRusoModel.News)">
+      <Parameter Name="NewsId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Categories" EntityType="CarsRusoModel.Category" />
+    <EntitySet Name="Subcategories" EntityType="CarsRusoModel.Subcategory" />
+    <AssociationSet Name="Subcategory_Category_fk" Association="CarsRusoModel.Subcategory_Category_fk">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Subcategory" EntitySet="Subcategories" />
+    </AssociationSet>
+    <FunctionImport Name="Category_B" EntitySet="Categories" ReturnType="Collection(CarsRusoModel.Category)">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Subcategory_B" EntitySet="Subcategories" ReturnType="Collection(CarsRusoModel.Subcategory)">
+      <Parameter Name="SubcategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Subcategories_Images" EntityType="CarsRusoModel.Subcategories_Images" />
+    <AssociationSet Name="Images_fk" Association="CarsRusoModel.Images_fk">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Subcategories_Images" EntitySet="Subcategories_Images" />
+    </AssociationSet>
+    <AssociationSet Name="Subcategories_fk" Association="CarsRusoModel.Subcategories_fk">
+      <End Role="Subcategory" EntitySet="Subcategories" />
+      <End Role="Subcategories_Images" EntitySet="Subcategories_Images" />
+    </AssociationSet>
+    <FunctionImport Name="Subcategory_Image_I">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="SubcategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="ImageId" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="ImageTitle" Mode="In" Type="String" />
+      <Parameter Name="ImagePath" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Teams" EntityType="CarsRusoModel.Team" />
+    <AssociationSet Name="Team_Image_fk" Association="CarsRusoModel.Team_Image_fk">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+    <FunctionImport Name="Team_B" EntitySet="Teams" ReturnType="Collection(CarsRusoModel.Team)">
+      <Parameter Name="TeamId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Subcategory_Image_B" EntitySet="Images" ReturnType="Collection(CarsRusoModel.Image)">
+      <Parameter Name="SubcategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Certifications" EntityType="CarsRusoModel.Certification" />
+    <AssociationSet Name="Certifications_Image_fk" Association="CarsRusoModel.Certifications_Image_fk">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Certification" EntitySet="Certifications" />
+    </AssociationSet>
+    <FunctionImport Name="Certification_B" EntitySet="Certifications" ReturnType="Collection(CarsRusoModel.Certification)">
+      <Parameter Name="CertificationId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Clients" EntityType="CarsRusoModel.Client" />
+    <AssociationSet Name="Clients_Images_fk" Association="CarsRusoModel.Clients_Images_fk">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <FunctionImport Name="Client_B" EntitySet="Clients" ReturnType="Collection(CarsRusoModel.Client)">
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Pilot_B" EntitySet="Pilots" ReturnType="Collection(CarsRusoModel.Pilot)">
+      <Parameter Name="PilotId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Pilots" EntityType="CarsRusoModel.Pilot" />
+    <AssociationSet Name="pilots_Image_fk" Association="CarsRusoModel.pilots_Image_fk">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Pilot" EntitySet="Pilots" />
+    </AssociationSet>
+    <EntitySet Name="Links" EntityType="CarsRusoModel.Link" />
+    <EntitySet Name="LinksCategories" EntityType="CarsRusoModel.LinksCategory" />
+    <AssociationSet Name="Links_Images_fk" Association="CarsRusoModel.Links_Images_fk">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Link" EntitySet="Links" />
+    </AssociationSet>
+    <AssociationSet Name="Links_LinksCategories_fk" Association="CarsRusoModel.Links_LinksCategories_fk">
+      <End Role="LinksCategory" EntitySet="LinksCategories" />
+      <End Role="Link" EntitySet="Links" />
+    </AssociationSet>
+    <FunctionImport Name="Link_B" EntitySet="Links" ReturnType="Collection(CarsRusoModel.Link)">
+      <Parameter Name="LinkId" Mode="In" Type="Int32" />
+      <Parameter Name="LinksCategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LinksCategory_B" EntitySet="LinksCategories" ReturnType="Collection(CarsRusoModel.LinksCategory)">
+      <Parameter Name="LinksCategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Services" EntityType="CarsRusoModel.Service" />
+    <AssociationSet Name="Services_AfterImage_fk" Association="CarsRusoModel.Services_AfterImage_fk">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Service" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="Services_BeforeImage_fk" Association="CarsRusoModel.Services_BeforeImage_fk">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="Service" EntitySet="Services" />
+    </AssociationSet>
+    <FunctionImport Name="Subcategory_Image_D">
+      <Parameter Name="SubcategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="ImageId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Languages" EntityType="CarsRusoModel.Language" />
+    <EntitySet Name="Texts" EntityType="CarsRusoModel.Text" />
+    <AssociationSet Name="Texts_Languages_fk" Association="CarsRusoModel.Texts_Languages_fk">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Text" EntitySet="Texts" />
+    </AssociationSet>
+    <FunctionImport Name="Texts_B" EntitySet="Texts" ReturnType="Collection(CarsRusoModel.Text)">
+      <Parameter Name="TextId" Mode="In" Type="Int32" />
+      <Parameter Name="LanguageId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Service_B" EntitySet="Services" ReturnType="Collection(CarsRusoModel.Service)">
+      <Parameter Name="ServiceId" Mode="In" Type="Int32" />
+      <Parameter Name="IsCompetition" Mode="In" Type="Boolean" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="News" Relationship="CarsRusoModel.News_Images_fk" FromRole="Images" ToRole="News" />
+    <Property Type="String" Name="ImageTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Subcategories_Images" Relationship="CarsRusoModel.Images_fk" FromRole="Image" ToRole="Subcategories_Images" />
+    <NavigationProperty Name="Teams" Relationship="CarsRusoModel.Team_Image_fk" FromRole="Image" ToRole="Team" />
+    <NavigationProperty Name="Certifications" Relationship="CarsRusoModel.Certifications_Image_fk" FromRole="Image" ToRole="Certification" />
+    <NavigationProperty Name="Clients" Relationship="CarsRusoModel.Clients_Images_fk" FromRole="Image" ToRole="Client" />
+    <NavigationProperty Name="Pilots" Relationship="CarsRusoModel.pilots_Image_fk" FromRole="Image" ToRole="Pilot" />
+    <NavigationProperty Name="Links" Relationship="CarsRusoModel.Links_Images_fk" FromRole="Image" ToRole="Link" />
+    <NavigationProperty Name="Services" Relationship="CarsRusoModel.Services_AfterImage_fk" FromRole="Image" ToRole="Service" />
+    <NavigationProperty Name="Services1" Relationship="CarsRusoModel.Services_BeforeImage_fk" FromRole="Image" ToRole="Service" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ImageId" Type="Int32" Nullable="false" />
+    <Property Name="ShortDescription" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="LongDescription" Type="String" MaxLength="1500" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" />
+    <NavigationProperty Name="Image" Relationship="CarsRusoModel.News_Images_fk" FromRole="News" ToRole="Images" />
+  </EntityType>
+  <Association Name="News_Images_fk">
+    <End Role="Images" Type="CarsRusoModel.Image" Multiplicity="1" />
+    <End Role="News" Type="CarsRusoModel.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Subcategories" Relationship="CarsRusoModel.Subcategory_Category_fk" FromRole="Category" ToRole="Subcategory" />
+  </EntityType>
+  <EntityType Name="Subcategory">
+    <Key>
+      <PropertyRef Name="SubcategoryId" />
+    </Key>
+    <Property Type="Int32" Name="SubcategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="CarsRusoModel.Subcategory_Category_fk" FromRole="Subcategory" ToRole="Category" />
+    <NavigationProperty Name="Subcategories_Images" Relationship="CarsRusoModel.Subcategories_fk" FromRole="Subcategory" ToRole="Subcategories_Images" />
+  </EntityType>
+  <Association Name="Subcategory_Category_fk">
+    <End Type="CarsRusoModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="CarsRusoModel.Subcategory" Role="Subcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Subcategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Subcategories_Images">
+    <Key>
+      <PropertyRef Name="Subcategory_ImageId" />
+    </Key>
+    <Property Type="Int32" Name="ImageId" Nullable="false" />
+    <Property Type="Int32" Name="SubcategoryId" Nullable="false" />
+    <Property Type="Int32" Name="Subcategory_ImageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Image" Relationship="CarsRusoModel.Images_fk" FromRole="Subcategories_Images" ToRole="Image" />
+    <NavigationProperty Name="Subcategory" Relationship="CarsRusoModel.Subcategories_fk" FromRole="Subcategories_Images" ToRole="Subcategory" />
+  </EntityType>
+  <Association Name="Images_fk">
+    <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="CarsRusoModel.Subcategories_Images" Role="Subcategories_Images" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Subcategories_Images">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Subcategories_fk">
+    <End Type="CarsRusoModel.Subcategory" Role="Subcategory" Multiplicity="1" />
+    <End Type="CarsRusoModel.Subcategories_Images" Role="Subcategories_Images" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subcategory">
+        <PropertyRef Name="SubcategoryId" />
+      </Principal>
+      <Dependent Role="Subcategories_Images">
+        <PropertyRef Name="SubcategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="TeamId" />
+    </Key>
+    <Property Type="Int32" Name="TeamId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ImageId" Nullable="false" />
+    <Property Type="String" Name="mail" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Image" Relationship="CarsRusoModel.Team_Image_fk" FromRole="Team" ToRole="Image" />
+  </EntityType>
+  <Association Name="Team_Image_fk">
+    <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="CarsRusoModel.Team" Role="Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Certification">
+    <Key>
+      <PropertyRef Name="CertificationId" />
+    </Key>
+    <Property Type="Int32" Name="CertificationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CertificationTitle" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ImageId" Nullable="false" />
+    <NavigationProperty Name="Image" Relationship="CarsRusoModel.Certifications_Image_fk" FromRole="Certification" ToRole="Image" />
+  </EntityType>
+  <Association Name="Certifications_Image_fk">
+    <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="CarsRusoModel.Certification" Role="Certification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Certification">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Type="Int32" Name="ClientId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ImageId" Nullable="false" />
+    <NavigationProperty Name="Image" Relationship="CarsRusoModel.Clients_Images_fk" FromRole="Client" ToRole="Image" />
+  </EntityType>
+  <Association Name="Clients_Images_fk">
+    <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="CarsRusoModel.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Pilot">
+    <Key>
+      <PropertyRef Name="PilotId" />
+    </Key>
+    <Property Type="Int32" Name="PilotId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ImageId" Nullable="false" />
+    <NavigationProperty Name="Image" Relationship="CarsRusoModel.pilots_Image_fk" FromRole="Pilot" ToRole="Image" />
+  </EntityType>
+  <Association Name="pilots_Image_fk">
+    <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="CarsRusoModel.Pilot" Role="Pilot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Pilot">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Link">
+    <Key>
+      <PropertyRef Name="LinkId" />
+    </Key>
+    <Property Type="Int32" Name="LinkId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="LinkCategoryId" />
+    <Property Type="Int32" Name="ImageId" Nullable="false" />
+    <NavigationProperty Name="Image" Relationship="CarsRusoModel.Links_Images_fk" FromRole="Link" ToRole="Image" />
+    <NavigationProperty Name="LinksCategory" Relationship="CarsRusoModel.Links_LinksCategories_fk" FromRole="Link" ToRole="LinksCategory" />
+    <Property Type="String" Name="LinkUrl" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LinksCategory">
+    <Key>
+      <PropertyRef Name="LinksCategoryId" />
+    </Key>
+    <Property Type="Int32" Name="LinksCategoryId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Links" Relationship="CarsRusoModel.Links_LinksCategories_fk" FromRole="LinksCategory" ToRole="Link" />
+  </EntityType>
+  <Association Name="Links_Images_fk">
+    <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="CarsRusoModel.Link" Role="Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Links_LinksCategories_fk">
+    <End Type="CarsRusoModel.LinksCategory" Role="LinksCategory" Multiplicity="0..1" />
+    <End Type="CarsRusoModel.Link" Role="Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinksCategory">
+        <PropertyRef Name="LinksCategoryId" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="LinkCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Type="Int32" Name="ServiceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="isCompetition" Nullable="false" />
+    <Property Type="Int32" Name="BeforeImage" Nullable="false" />
+    <Property Type="Int32" Name="AfterImage" Nullable="false" />
+    <NavigationProperty Name="ImageAfter" Relationship="CarsRusoModel.Services_AfterImage_fk" FromRole="Service" ToRole="Image" />
+    <NavigationProperty Name="ImageBefore" Relationship="CarsRusoModel.Services_BeforeImage_fk" FromRole="Service" ToRole="Image" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="Services_AfterImage_fk">
+    <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="CarsRusoModel.Service" Role="Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="AfterImage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Services_BeforeImage_fk">
+    <End Type="CarsRusoModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="CarsRusoModel.Service" Role="Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="BeforeImage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Type="Int32" Name="LanguageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Text">
+    <Key>
+      <PropertyRef Name="TextId" />
+    </Key>
+    <Property Type="Int32" Name="TextId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="LanguageId" Nullable="false" />
+    <Property Type="String" Name="Descriptor" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Content" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Language" Relationship="CarsRusoModel.Texts_Languages_fk" FromRole="Text" ToRole="Language" />
+  </EntityType>
+  <Association Name="Texts_Languages_fk">
+    <End Type="CarsRusoModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="CarsRusoModel.Text" Role="Text" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Text">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

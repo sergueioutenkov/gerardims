@@ -1,0 +1,36 @@
+﻿@model IEnumerable<RusoCars.Models.Subcategory>
+@{
+    ViewBag.Title = "Subcategorías";
+}
+<h2>Subcategorías</h2>
+<p>
+    @Html.ActionLink("Nueva subcategoría", "Create")
+</p>
+<table class="tabla_datos">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.SubcategoryId }) |
+                @Html.ActionLink("Detalle", "Details", new { id = item.SubcategoryId }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.SubcategoryId })
+            </td>
+        </tr>
+    }
+</table>

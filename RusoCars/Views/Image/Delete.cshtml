@@ -1,0 +1,32 @@
+﻿@model RusoCars.Models.Image
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Image</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImageTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImagePath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImagePath)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

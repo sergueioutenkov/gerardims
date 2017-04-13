@@ -1,0 +1,36 @@
+﻿@model RusoCars.Models.Text
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>Text</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Language.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Language.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descriptor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descriptor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Content)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Content)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.TextId }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

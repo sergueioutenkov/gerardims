@@ -1,0 +1,37 @@
+﻿@model RusoCars.Models.Client
+@{
+    ViewBag.Title = "Delete";
+}
+<h2>
+    Borrar</h2>
+<h3>
+    Seguro que desea borrar?</h3>
+<fieldset>
+    <legend>Client</legend>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Image.ImageTitle)
+    </div>
+    <div>
+        <img src=" @Html.DisplayFor(model => model.Image.ImagePath)" alt=" @Html.DisplayNameFor(model => model.Image.ImageTitle)" height="75" width="100" />
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Borrar" />
+        |
+        @Html.ActionLink("Volver", "Index")
+    </p>
+}

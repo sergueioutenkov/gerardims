@@ -1,0 +1,59 @@
+﻿@model RusoCars.Models.Service
+
+@{
+    ViewBag.Title = "Servicios";
+}
+<div class="index">    
+    <div class="intro">
+        <p class="titulo">
+            Servicios
+        </p>
+        <div class="lineaRoja">
+        
+        </div>
+        <div class="instanciaServicio">
+            <img src="../../Images/competicion.jpg"/>
+             @Ajax.ActionLink(" ", "ShowCompetition", "Public", new AjaxOptions
+            {
+               UpdateTargetId = "menu",
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "GET",
+               OnBegin = "ajaxOnBeginService('menu')",
+               OnComplete = "ajaxOnComplete('menu')",
+               OnSuccess = "ajaxOnSuccess('menu')",               
+               LoadingElementDuration = 2000
+            })
+            <p class="titulo">
+                Motorsport y Competición
+            </p>
+        </div>
+        <div class="instanciaServicio">
+           <img src="../../Images/mecanica.jpg"/>    
+             @Ajax.ActionLink(" ", "ShowMechanic", "Public", new AjaxOptions
+            {
+               UpdateTargetId = "menu",
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "GET",
+               OnBegin = "ajaxOnBeginService('menu')",
+               OnComplete = "ajaxOnComplete('menu')",
+               OnSuccess = "ajaxOnSuccess('menu')",               
+               LoadingElementDuration = 2000               
+            })
+            <p class="titulo">
+                Mecanizados, Rectificación de motores <br />y Fabricación de elementos especiales
+            </p>
+        </div>
+    </div>
+</div>
+<div class="menuIzq" id="menu">
+    @Html.Action("ShowCompetition", true)
+</div>
+<div class="contenedor contenedorService" id="contenedor">
+    <p class="titulo">
+         Seleccione un servicio para ver su descripción.
+    </p>
+</div>
+
+<div class="zoom" id="zoom">
+    
+</div>

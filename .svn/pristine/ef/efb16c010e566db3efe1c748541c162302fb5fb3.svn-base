@@ -1,0 +1,36 @@
+﻿@model IEnumerable<RusoCars.Models.Image>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Index</h2>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageTitle)
+        </th>
+        <th>
+            Image
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageTitle)
+            </td>
+            <td>
+              <img src=@Html.DisplayFor(modelItem => item.ImagePath) alt=" @Html.DisplayFor(modelItem => item.ImageTitle)" />
+            </td><td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ImageId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ImageId })
+        </td>
+            </tr>
+    }
+</table>
+@using (Html.BeginForm("Index", "Image", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+   @Html.File("file", "fileUploader");
+    <input type="submit" value="OK" />
+}
+

@@ -1,0 +1,50 @@
+﻿@model RusoCars.Models.Service
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle</h2>
+
+<fieldset>
+    <legend>Service</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isCompetition)
+    </div>
+    <div class="display-field">
+        @(Model.isCompetition ? "Competicion" : "Mecanica")
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImageBefore.ImagePath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageBefore.ImagePath)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImageAfter.ImagePath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageAfter.ImagePath)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.ServiceId }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

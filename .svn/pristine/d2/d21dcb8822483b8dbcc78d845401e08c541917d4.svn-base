@@ -1,0 +1,50 @@
+﻿@model RusoCars.Models.News
+@using RusoCars.Helpers;
+@{
+    ViewBag.Title = "Create";
+}
+<h2>
+    Create</h2>
+@using (Html.BeginForm("Create", "Client", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+     @Html.ValidationSummary(true)
+<fieldset>
+    <legend>News</legend>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Title)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Title)
+        @Html.ValidationMessageFor(model => model.Title)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ImageId, "Image")
+    </div>
+    <div class="editor-label">
+         @Html.File("file", "FileUploader") 
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ShortDescription)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.ShortDescription)
+        @Html.ValidationMessageFor(model => model.ShortDescription)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.LongDescription)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.LongDescription)
+        @Html.ValidationMessageFor(model => model.LongDescription)
+    </div>
+    <p>
+        <input type="submit" value="Create" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,12 @@
+﻿    <p class="dia" style=" color:White; font-size:18px">
+        @Model.Date.Day de @Model.Date.ToString("MMMM", null) del @Model.Date.Year
+    </p>
+<div class="imagen">
+    <img src="@(Model.Image.ImagePath)">
+</div>
+<p class="titulo">
+    @(Model.Title)
+</p>
+<div class="contenido">
+    @Html.Raw(Model.LongDescription)
+</div>

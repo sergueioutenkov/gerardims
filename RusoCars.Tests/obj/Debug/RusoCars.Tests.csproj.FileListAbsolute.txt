@@ -1,0 +1,104 @@
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\RusoCars.Tests.dll.config
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\RusoCars.Tests.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\RusoCars.Tests.pdb
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\Newtonsoft.Json.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\RusoCars.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.Formatting.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.WebRequest.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Helpers.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Http.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Http.WebHost.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Mvc.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Razor.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\EntityFramework.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Optimization.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.AspNet.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\WebGrease.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.Core.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OAuth.Consumer.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OAuth.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OpenId.RelyingParty.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OpenId.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\Antlr3.Runtime.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\RusoCars.pdb
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\Newtonsoft.Json.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.Formatting.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.WebRequest.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Helpers.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Http.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Http.WebHost.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Mvc.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Razor.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\EntityFramework.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.AspNet.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.Core.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OAuth.Consumer.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OAuth.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OpenId.RelyingParty.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OpenId.xml
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\obj\Debug\ResolveAssemblyReference.cache
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\obj\Debug\RusoCars.Tests.dll
+c:\users\martin\documents\visual studio 2010\Projects\RusoCars\RusoCars.Tests\obj\Debug\RusoCars.Tests.pdb
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\RusoCars.Tests.dll.config
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\RusoCars.Tests.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\RusoCars.Tests.pdb
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\Newtonsoft.Json.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\RusoCars.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.Formatting.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.WebRequest.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Helpers.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Http.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Http.WebHost.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Mvc.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Razor.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\EntityFramework.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Optimization.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.AspNet.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\WebGrease.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.Core.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OAuth.Consumer.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OAuth.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OpenId.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\Antlr3.Runtime.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\RusoCars.pdb
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\Newtonsoft.Json.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.Formatting.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Net.Http.WebRequest.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Helpers.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Http.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Http.WebHost.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Mvc.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.Razor.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\EntityFramework.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.AspNet.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.Core.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OAuth.Consumer.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OAuth.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\bin\Debug\DotNetOpenAuth.OpenId.xml
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\obj\Debug\ResolveAssemblyReference.cache
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\obj\Debug\RusoCars.Tests.dll
+F:\Proyects\RusoCars\RusoCars\RusoCars.Tests\obj\Debug\RusoCars.Tests.pdb

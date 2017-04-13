@@ -1,0 +1,24 @@
+﻿
+    <p class="titulo">
+        Competición
+    </p>
+    <div class="lineaRoja">
+        
+    </div>
+    <br />
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="instanciaServicio"> 
+        <p class="titulo">
+            @Ajax.ActionLink((String)Model[i].Name, "ShowService", "Public", new { id = (int)Model[i].ServiceId }, new AjaxOptions
+            {
+               UpdateTargetId = "contenedor",
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "GET",
+               OnBegin = "ajaxOnBegin('contenedor')",
+               OnComplete = "ajaxOnComplete('contenedor')",
+               OnSuccess = "ajaxOnSuccess('contenedor')",               
+               LoadingElementDuration = 2000
+            })</p>
+        </div>
+    }

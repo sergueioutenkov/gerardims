@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Equipo";
+}
+
+<div class="menuIzq">
+    <p class="titulo">
+        Equipo
+    </p>
+    <div class="lineaRoja">
+                        
+    </div>
+    @for (int i = 0; i < Model.Count ; i++)
+    {
+        <div class="instancia">                        
+            <img src="@Model[i].Image.ImagePath">
+            @Ajax.ActionLink(" ", "ShowInstantTeam", "Public", new { id = (int)Model[i].TeamId }, new AjaxOptions
+            {
+               UpdateTargetId = "contenedor",
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "GET",
+               OnBegin = "ajaxOnBegin('contenedor')",
+               OnComplete = "ajaxOnComplete('contenedor')",
+               OnSuccess = "ajaxOnSuccess('contenedor')",               
+               LoadingElementDuration = 2000
+            })
+        </div>    
+    }
+</div>
+<div class="contenedor" id="contenedor">
+    @Html.Partial("_showInstantTeam", (RusoCars.Models.Team)Model[0])
+</div>

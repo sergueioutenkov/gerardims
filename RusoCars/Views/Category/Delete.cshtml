@@ -1,0 +1,25 @@
+﻿@model RusoCars.Models.Category
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar</h2>
+
+<h3>Esta seguro que desea borrar?</h3>
+<fieldset>
+    <legend>Category</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Borrar" /> |
+        @Html.ActionLink("Volver", "Index")
+    </p>
+}

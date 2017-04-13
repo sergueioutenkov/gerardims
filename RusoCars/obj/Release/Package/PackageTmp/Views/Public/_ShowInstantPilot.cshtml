@@ -1,0 +1,13 @@
+﻿@model RusoCars.Models.Pilot
+
+    <div class="imagen">
+        <img src="@(Model.Image.ImagePath)">
+    </div>
+    <div class="lineaRoja">
+                        
+    </div>
+    <p class="descripcion" style="text-align:center">
+        <b>@(Model.FirstName) @(Model.LastName)</b>
+        <br /><br />
+        @(Model.Description)
+    </p>

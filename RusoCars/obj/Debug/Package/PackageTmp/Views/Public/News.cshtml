@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Noticias";
+}
+
+<div class="sliderNoticias">
+    <div class="listado">  
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="instanciaNoticia" id="selector_@i" onclick="slideDiv('sliderIndex', '-@(i * 680)px', '', this.id); loadImage(@Model[i].NewsId)">                        
+                <p class="titulo">
+                    @Model[i].Title
+                </p>
+                <p>
+                    @Model[i].ShortDescription
+                </p>
+                
+            @Ajax.ActionLink("Leer más", "ShowInstantNew", "Public", new { id = (int)Model[i].NewsId }, new AjaxOptions
+            {
+                UpdateTargetId = "desarrolloNoticia",
+                InsertionMode = InsertionMode.Replace,
+                HttpMethod = "GET",
+                OnBegin = "ajaxOnBegin('desarrolloNoticia')",
+                OnComplete = "ajaxOnComplete('desarrolloNoticia')",
+                OnSuccess = "ajaxOnSuccess('desarrolloNoticia')",
+                LoadingElementDuration = 2000
+            })
+            </div>
+        }        
+    </div>
+    <div class="slider">
+        <div class="absolute" id="sliderIndex">
+         @foreach (var item in Model)
+         {
+            <div class="instancia">
+                <div class="imgFondo">
+                    <img src="@item.Image.ImagePath" alt="@item.Image.ImageTitle" />
+                </div>
+                <div class="contenido">
+                    <div class="lineaRoja">
+
+                    </div>
+                    <p class="titulo">
+                        @item.Title
+                    </p>
+                    <p>
+                        @item.ShortDescription
+                    </p>
+                </div>
+            </div>
+         }
+        </div>
+    </div>
+</div>
+<div class="desarrolloNoticia" id="desarrolloNoticia">
+@if (Model.Count > 0)
+{
+    @Html.Partial("_showInstantNew", (RusoCars.Models.News)Model[0]) }
+    
+        </div>

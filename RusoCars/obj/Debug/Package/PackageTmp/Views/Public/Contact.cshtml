@@ -1,0 +1,80 @@
+﻿@model RusoCars.Models.Contact
+
+@{
+    ViewBag.Title = "Contacto";
+}
+
+<div class="index">    
+    <div class="intro">
+        <p class="titulo">
+            @ViewBag.Title
+        </p>
+        <div class="lineaRoja">
+        
+        </div>
+        <div class="mapa">
+            <iframe width="400" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.ar/maps/ms?msa=0&amp;msid=218419218747921425822.0004d771090d081cbce57&amp;ie=UTF8&amp;t=m&amp;ll=-32.879894,-68.818821&amp;spn=0.003154,0.004281&amp;z=17&amp;output=embed"></iframe>
+        </div>
+        <div class="formulario">
+            <p class="titulo">
+                Complete el siguiente formulario para contactarnos:
+            </p>            
+            @using (Html.BeginForm("Contact", "Public", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+            @Html.ValidationSummary(true)
+            <table width="100%">
+                <tr>
+                    <td width="200">   
+                        @Html.LabelFor(model => model.Name)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </td>   
+                </tr>
+                <tr>
+                    <td width="200">
+                        @Html.LabelFor(model => model.Phone)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Phone)
+                        @Html.ValidationMessageFor(model => model.Phone)
+                    </td>   
+                </tr>
+                <tr>
+                    <td width="200">
+                        @Html.LabelFor(model => model.Email)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </td>   
+                </tr>
+                <tr>
+                    <td width="200">
+                        @Html.LabelFor(model => model.Consult)
+                    </td>
+                    <td>
+                        @Html.TextAreaFor(model => model.Consult)
+                        @Html.ValidationMessageFor(model => model.Consult)
+                    </td>   
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="submit" value="Enviar" />
+                    </td>
+                </tr>
+            </table>
+            }
+        </div>        
+    </div>
+    <p class="titulo" style="text-align:center; color:#f00;">
+        @((ViewBag.success != "") ? ViewBag.success : "")
+        @((ViewBag.error != "") ? ViewBag.error : "")
+    </p>
+    <p style="text-align:center; color:#fff;">
+        Tel. +54 (261) 445 1754 - info@gerardims.com <br />Las Heras 1949, San José - Guaymallén - Mendoza - Argentina - C.P. M5519DBE 
+    </p>
+</div>

@@ -1,0 +1,82 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using RusoCars;
+using RusoCars.Models;
+using System.Web.Routing;
+using System.IO;
+using System.Web.Helpers;
+
+namespace RusoCars.Helpers
+{
+    public static class MyHtmlHelpers
+    {
+        public static HtmlString File(this HtmlHelper helper,
+                                                 string type,
+                                                 string name)
+        {
+
+            if (!String.IsNullOrEmpty(type) && !String.IsNullOrEmpty(name))
+            {
+                TagBuilder fileBuilder = new TagBuilder("input");
+                fileBuilder.MergeAttribute("type", type);
+                Random r = new Random();
+                string s = r.Next(0, 99999999).ToString();
+                name = name + s;
+                fileBuilder.MergeAttribute("name", name);
+
+                var ret = new MvcHtmlString(fileBuilder.ToString(TagRenderMode.SelfClosing));
+                return ret;
+            }
+            return null;
+        }
+
+    }
+
+    public static class FileHelpers
+    {
+        public static HttpPostedFileBase UploadFile(HttpPostedFileBase file, string serverPath, string randomString)
+        {
+            if (file.ContentLength > 0)
+            {
+                string filePath = Path.Combine(serverPath, randomString + file.FileName);
+                file.SaveAs(filePath);
+                var webImage = new WebImage(filePath);
+                webImage.Resize(600, 800, preserveAspectRatio: true, preventEnlarge: false);
+                webImage.Save(filePath);
+                return file;
+            }
+            return null;
+
+        }
+        public static void RemoveFile(int? imageId)
+        {
+            if (!imageId.HasValue)
+                return;
+            CarsRusoEntities db = new CarsRusoEntities();
+            Image image = db.Image_B(imageId).ToList<Image>().First();
+            string realPath = HttpContext.Current.Server.MapPath(image.ImagePath);
+            File.Delete(realPath);
+
+
+        }
+        public static int SaveImage(HttpPostedFileBase file, string randomString)
+        {
+            CarsRusoEntities db = new CarsRusoEntities();
+            //Save image in DB
+            Image image = new Image();
+            image.ImageTitle = file.FileName;
+            image.ImagePath = "../../Images/" + randomString + file.FileName;
+            db.Images.Add(image);
+            db.SaveChanges();
+            int imageId = db.Images.Max(i => i.ImageId);
+            return imageId;
+        }
+
+
+    }
+}

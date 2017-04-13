@@ -1,0 +1,36 @@
+﻿@model RusoCars.Models.Certification
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle</h2>
+
+<fieldset>
+    <legend>Certification</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CertificationTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CertificationTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Image.ImagePath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Image.ImagePath)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.CertificationId }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

@@ -1,0 +1,50 @@
+﻿@model RusoCars.Models.News
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>News</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Image.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Image.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ShortDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ShortDescription)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LongDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LongDescription)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.NewsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

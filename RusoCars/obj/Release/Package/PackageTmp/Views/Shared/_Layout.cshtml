@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - Panel de Control</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">
+                    <a href="@Url.Action("Index","Home")"><img src="~/Images/capicua.png" alt="Home" /></a>
+                    </p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Noticias", "Index", "News")</li>
+                            <li>@Html.ActionLink("Textos", "Index", "Text")</li>
+                            <li>@Html.ActionLink("Equipo", "Index", "Team")</li>
+                            <li>@Html.ActionLink("Certificaciones", "Index", "Certification")</li>
+                            @*<li>@Html.ActionLink("Imagenes", "Index", "Image")</li>*@
+                            <li>@Html.ActionLink("Pilotos", "Index", "Pilot")</li>
+                            <li>@Html.ActionLink("Categorias Link", "Index", "LinksCategory")</li>
+                            <li>@Html.ActionLink("Links", "Index", "Link")</li>
+                            <li>@Html.ActionLink("Clientes", "Index", "Client")</li>
+                            <li>@Html.ActionLink("Categorias", "Index", "Category")</li>
+                            <li>@Html.ActionLink("Subcategorías", "Index", "Subcategory")</li>
+                            <li>@Html.ActionLink("Servicios", "Index", "Service")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - Capicua Web Development -  Todos los derechos reservados </p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

@@ -1,0 +1,29 @@
+﻿@model RusoCars.Models.Image
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Image</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImageTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImagePath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImagePath)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ImageId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
